@@ -1,0 +1,152 @@
+@import "scss/layout";
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 50%;
+    background-color: $color-gray-300;
+    z-index: -1;
+    border-bottom-left-radius: 100px;
+  }
+}
+
+.main {
+  overflow: hidden;
+  margin-top: 7%;
+  flex: 1;
+}
+
+.header {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.header-navigation {
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    margin-right: 45px;
+
+    &_spliter {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $color-gray-400;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 800;
+    color: $color-gray-600;
+
+    &_light {
+      color: $color-gray-500;
+    }
+  }
+}
+
+@media (min-width: $grid-breakpoint-md) {
+  .header {
+    &__inner {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .header-menu-button {
+    display: none;
+  }
+
+  .btns {
+    display: flex;
+    align-items: center;
+  }
+
+  .main {
+    position: relative;
+
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 64%;
+      z-index: -1;
+    }
+  }
+}
+
+@media (min-width: $grid-breakpoint-lg) {
+  body {
+    &::before {
+      content: '';
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+  .main {
+    &__image {
+      left: 50%;
+    }
+  }
+}
+
+@media (min-width: $grid-breakpoint-xl) {
+  .main {
+    &__image {
+      left: 54%;
+      width: 60%;
+      min-width: 954px;
+    }
+  }
+}
+
+@media (max-width: $grid-breakpoint-md - 1px) {
+  .main {
+    &__image {
+      width: 140%;
+      margin-left: auto;
+      transform: translateX(10%);
+      margin-bottom: 45px;
+    }  
+  }
+
+  .header-navigation {
+    display: none;
+  }
+}
+
+@media (max-width: $grid-breakpoint-sm - 1px) {
+  .btns {
+    .btn {
+      width: 100%;
+      text-align: center;
+      margin-top: 15px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

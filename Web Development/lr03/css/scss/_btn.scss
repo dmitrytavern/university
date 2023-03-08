@@ -1,0 +1,59 @@
+.btn {
+  font-family: "Montserrat", sans-serif;
+  transition: box-shadow 0.3s;
+  width: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+  &_type {
+    &_round {
+      border-radius: 50px;
+    }
+  }
+
+  &_theme {
+    &_primary {
+      color: $color-white;
+      background-color: $color-primary;
+      box-shadow: none;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 12px rgba($color-primary, 0.35);
+      }
+    }
+
+    &_white {
+      color: $color-dark;
+      background-color: $color-white;
+      box-shadow: none;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 12px rgba($color-white, 0.35);
+      }
+    }
+  }
+
+  &_size {
+    &_sm {
+      padding: 10px 12px;
+    }
+
+    &_xl {
+      padding: 12px 30px;
+    }
+  }
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 30%;
+
+  img {
+    margin-right: 15px;
+  }
+}

@@ -1,0 +1,47 @@
+.btn {
+  transition:  .3s;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  color: $color-white;
+  
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.btn_size_sm {
+  padding: 15px 25px;
+}
+
+.btn_size_md {
+  padding: 10px 35px;
+}
+
+.btn_size_lg {
+  padding: 10px 35px;
+}
+
+.btn-primary {
+  border-radius: 5px;
+  background-color: $color-primary;
+}
+
+.btn-outline {
+  border: 1px solid $color-white;
+}
+
+.btn-round {
+  border-radius: 40px;
+}
+
+@include media-md-min {
+  .btn_size_lg {
+    padding: 15px 35px;
+  }
+}

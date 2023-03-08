@@ -1,0 +1,40 @@
+@import "vars";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+@import "heading";
+@import "spacing";
+@import "form";
+@import "btn";

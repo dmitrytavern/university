@@ -1,0 +1,45 @@
+@import "scss/layout";
+
+@include media-md-max {
+  body {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@include media-md-min {
+  html,
+  body {
+    height: 100vh;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 90px auto 340px;
+    grid-column-gap: 45px;
+  }
+
+  main {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@include media-xl-min {
+  body {
+    grid-template-columns: 90px auto 440px;
+  }
+}
+
+@import "scss/parts/preloader";
+@import "scss/parts/header";
+@import "scss/parts/header-search";
+@import "scss/parts/tab-controls";
+@import "scss/parts/products";
+@import "scss/parts/product";
+@import "scss/parts/sidebar";

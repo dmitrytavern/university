@@ -1,0 +1,23 @@
+.badge-wrapper {
+  display: flex;
+  align-items: center
+}
+
+.badge {
+  padding: 6px 12px;
+  font-size: 16px;
+  color: $color-white;
+  font-weight: 800;
+  background-color: $color-gray-600;
+  margin-right: 10px;
+  border-radius: 50px;
+  letter-spacing: normal;
+}
+
+@media (min-width: $grid-breakpoint-sm) {
+  .badge {
+    padding: 8px 15px;
+    font-size: 20px;
+    margin-right: 20px;
+  }
+}

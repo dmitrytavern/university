@@ -1,0 +1,19 @@
+.btn {
+  display: inline-block;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  color: $color-white;
+  font-weight: 800;
+  background-color: $color-red-400;
+  border-radius: 8px;
+}
+
+.btn-secondary {
+  color: $color-gray-600;
+  font-weight: 300;
+  letter-spacing: 5px;
+}

@@ -1,0 +1,19 @@
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+@include media-md-min {
+  .products {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}
+
+@include media-lg-min {
+  .products {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

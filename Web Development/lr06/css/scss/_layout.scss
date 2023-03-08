@@ -1,0 +1,79 @@
+@import "vars";
+@import "mixin";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $font-base;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 1px;
+
+  @include media-md-max {
+    .container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  @media (min-width: $grid-breakpoint-md) {
+    max-width: $grid-breakpoint-md;
+  }
+
+  @media (min-width: $grid-breakpoint-lg) {
+    max-width: $grid-breakpoint-lg;
+  }
+}
+
+.d-n {
+  display: none;
+}
+
+@include media-md-min {
+  .md\:d-n {
+    display: none;
+  }
+
+  .md\:d-b {
+    display: block;
+  }
+}
+
+@import "heading";
+@import "spacing";
+@import "btn";

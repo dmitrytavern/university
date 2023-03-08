@@ -1,0 +1,45 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: preloader-wrapper .8s linear 2s 1 forwards;
+
+  &__spiner {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-top: 2px solid $color-red-400;
+    border-left: 2px solid $color-red-400;
+    border-radius: 100px;
+    animation: preloader .8s linear infinite;
+  }
+}
+
+@keyframes preloader-wrapper {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes preloader {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

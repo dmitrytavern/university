@@ -1,0 +1,47 @@
+.btn {
+  transition:  .3s;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  border: 1px solid #D2D2D2;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    fill: $color-gray-400;
+  }
+
+  &:hover {
+    background-color: $color-dark-400;
+  }
+}
+
+.btn-close {
+  width: 13px;
+  height: 13px;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.btn-secondary {
+  text-align: center;
+  padding: 16px 0;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: $color-dark-300;
+  border-radius: 50px;
+  color: $color-white;
+}

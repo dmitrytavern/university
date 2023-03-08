@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dmitry Tavern - Lr03 | Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <main class="main">
+    <div class="main__column main__background main__background_login">
+      <div class="main__column-content">
+        <ul>
+          <li>
+            <button class="btn btn-icon btn_size_sm btn_type_round btn_theme_white">
+              <img src="img/linkedin.svg" alt="LinkedIn" width="16px" height="16px" />
+              <span>Singup with LinkedIn</span>
+            </button>
+          </li>
+
+          <li class="mt-20">
+            <button class="btn btn-icon btn_size_sm btn_type_round btn_theme_white">
+              <img src="img/twitter.svg" alt="Twitter" width="16px" height="16px" />
+              <span>Singup with Twitter</span>
+            </button>
+          </li>
+
+          <li class="mt-20">
+            <button class="btn btn-icon btn_size_sm btn_type_round btn_theme_white">
+              <img src="img/facebook.svg" alt="Facebook" width="16px" height="16px" />
+              <span>Singup with Facebook</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main__column">
+      <div class="main__column-content">
+        <form action="checkout.html">
+          <h1 class="heading-1 text-center">Sing Up</h1>
+          <h2 class="heading-2 mt-20 text-center">Get started absolutly free</h2>
+
+          <label class="form-label mt-50" for="form-login-email">Email:</label>
+          <input class="form-control" type="email" name="email" id="form-login-email" required />
+
+          <label class="form-label mt-20" for="form-login-password">Password:</label>
+          <input class="form-control" type="password" name="password" id="form-login-password" required />
+
+          <label class="form-control-checkbox mt-20">
+            <input type="checkbox" name="form-login-policy" />
+            <span>
+              Creating an account means you're okay with our
+              <a href="#" target="blank">Terms of Service</a>,
+              <a href="#" target="blank">Privacy Policy</a>
+              and default Notification Settings
+            </span>
+          </label>
+
+          <button type="submit" class="mt-50 btn btn_size_sm btn_theme_primary btn_type_round">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

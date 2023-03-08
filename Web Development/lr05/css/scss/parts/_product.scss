@@ -1,0 +1,47 @@
+.product {
+  background-color: $color-white;
+  border-radius: 16px;
+  box-shadow: 4px 4px 12px rgba(#000, .1);
+  overflow: hidden;
+
+  &__thumbnail {
+    width: 100%;
+    min-height: 160px;
+    object-fit: cover;
+  }
+
+  &__inner {
+    padding: 13px 8px;
+  }
+
+  &__title {
+    font-size: 13px;
+    color: #616161;
+    font-weight: 500;
+  }
+
+  &__price {
+    color: $color-red-400;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  &__button {
+    margin-left: auto;
+    margin-top: -15px;
+  }
+}
+
+@include media-md-min {
+  .product {
+    &__inner {
+      padding: 13px;
+    }
+
+    &__title,
+    &__price {
+      font-size: 16px;
+    }
+  }
+}

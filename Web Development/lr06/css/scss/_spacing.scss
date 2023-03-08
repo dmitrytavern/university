@@ -1,0 +1,29 @@
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-35 {
+  margin-top: 35px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+@include media-md-min {
+  .md\:mr-10 {
+    margin-right: 10px;
+  }
+
+  .md\:mt-90 {
+    margin-top: 90px;
+  }
+
+  .md\:mt-120 {
+    margin-top: 120px;
+  }
+}

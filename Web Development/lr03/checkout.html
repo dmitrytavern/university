@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dmitry Tavern - Lr03 | Checkout</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+<body>
+  <main class="main">
+    <div class="main__column main__background main__background_checkout">
+      <div class="main__column-content">
+        <img class="checkout-logo" src="img/logo.svg" alt="Logo" width="59" height="57">
+        <h1 class="heading-2 text-center checkout-title mt-10">Complete your purchase</h1>
+
+        <div class="checkout-cart mt-20">
+          <ul>
+            <li>
+              <div class="checkout-white-block cart-item">
+                <div class="cart-item__head">
+                  <img class="cart-item__image" src="img/product-item.svg" alt="Icon">
+                  <div class="cart-item__title">Golden Penny Spread</div>
+                  <date class="cart-item__date checkout-ins">AUG 5</date>
+                </div>
+                <div class="cart-item__content">
+                  <div class="cart-item__detail">SN43500</div>
+                  <div class="cart-item__detail">12:50 PM</div>
+                  <ins class="cart-item__price checkout-ins">$14.79</ins>
+                </div>
+              </div>
+            </li>
+
+            <li class="mt-20">
+              <div class="checkout-white-block cart-item">
+                <div class="cart-item__head">
+                  <img class="cart-item__image" src="img/product-item.svg" alt="Icon">
+                  <div class="cart-item__title">Orange Blossom Honey</div>
+                  <date class="cart-item__date checkout-ins">AUG 5</date>
+                </div>
+                <div class="cart-item__content">
+                  <div class="cart-item__detail">SN47600</div>
+                  <div class="cart-item__detail">13:25 PM</div>
+                  <ins class="cart-item__price checkout-ins">$20.21</ins>
+                </div>
+              </div>
+            </li>
+
+            <li class="mt-20">
+              <div class="checkout-white-block cart-item">
+                <div class="cart-item__head">
+                  <img class="cart-item__image" src="img/product-item.svg" alt="Icon">
+                  <div class="cart-item__title">Cocopaps Cereal</div>
+                  <date class="cart-item__date checkout-ins">AUG 5</date>
+                </div>
+                <div class="cart-item__content">
+                  <div class="cart-item__detail">SN13704</div>
+                  <div class="cart-item__detail">14:02 PM</div>
+                  <ins class="cart-item__price checkout-ins">$15.00</ins>
+                </div>
+              </div>
+            </li>
+
+            <li class="checkout-white-block cart-total mt-20">
+              <div class="cart-total__row">
+                <div>Subtotal</div>
+                <ins class="checkout-ins">$50.00</ins>
+              </div>
+
+              <div class="cart-total__row mt-15">
+                <div>Taxes & Fees</div>
+                <ins class="checkout-ins">$10.00</ins>
+              </div>
+
+              <div class="cart-total__row mt-15">
+                <div>Promo Code - 1E53445645</div>
+                <ins class="checkout-ins">-30%</ins>
+              </div>
+
+              <div class="cart-total__row cart-total__row_total mt-30">
+                <div>Total</div>
+                <ins>$42.00</ins>
+              </div>
+            </li>
+          </ul>
+
+          <a href="index.html" class="checkout-back mt-40">
+            <img src="img/arrow-left.svg" alt="Previous page">
+            <span>Previous page</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main__column">
+      <div class="main__column-content">
+        <form action="index.html" class="checkout-form">
+          <button type="button" class="btn btn_theme_primary btn_size_xl text-center">Pay with PayPal</button>
+          <p class="checkout-form__text text-center mt-20">Or pay with card</p>
+
+          <label class="form-label mt-20" for="form-checkout-email">Email:</label>
+          <input class="form-control" type="email" name="email" id="form-checkout-email" required />
+
+          <label class="form-label mt-20">Card:</label>
+          <div class="form-group form-card-number">
+            <label class="form-group__row col-12 border-bottom">
+              <input class="input-reset" type="number" name="card_number" placeholder="1234 5678 9101 1234" required>
+              <img src="img/payment-visa.svg" alt="Visa">
+              <img src="img/payment-mastercard.svg" alt="Mastercard">
+            </label>
+
+            <label class="form-group__row col-6 border-right">
+              <input class="input-reset" type="number" name="card_exp" placeholder="MM / YY" required>
+            </label>
+
+            <label class="form-group__row col-6">
+              <input class="input-reset" type="number" name="card_cvc" placeholder="CVC" required>
+              <img src="img/payment-cvc.svg" alt="CVC">
+            </label>
+          </div>
+
+          <label class="form-label mt-20" for="form-checkout-card-name">Name of card:</label>
+          <input class="form-control" type="text" name="card_name" id="form-checkout-card-name" required />
+
+          <label class="form-label mt-20" for="form-checkout-card-name">Country or region:</label>
+          <div class="form-group">
+            <label class="form-group__row border-bottom">
+              <select class="form-selector" name="country">
+                <option value="United States" selected>United States</option>
+                <option value="Ukraine">Ukraine</option>
+              </select>
+            </label>
+
+            <label class="form-group__row">
+              <input class="input-reset" type="number" name="zip_code" placeholder="ZIP" required>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn_theme_primary btn_size_xl text-center mt-30">Pay $42.00</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

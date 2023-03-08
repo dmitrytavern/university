@@ -1,0 +1,20 @@
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  color: $color-white;
+
+  &_dark {
+    background-color: $color-backgorund-dark;
+  }
+
+  &_light {
+    background-color: $color-backgorund-light;
+  }
+}
+
+@include media-md-min {
+  .section {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+}

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Studio Desktop" version="1.0.8253.4763"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="168">
+    <identity>
+      <id>56561748-1553-4555-ae9e-deec7305b0c1</id>
+      <revision>29</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>0</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true">
+      <paper id="0" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Studio Desktop" version="1.0.8253.4763" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.11.8253.4763" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.12.8253.4763" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="PlotRegion" version="1.11.8253.4763" guid="c451c2b5-798b-4f08-b9ec-b90963d1ddaa" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="0" top="18" width="882" height="28" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">naive_results_file</e>
+          <e type="operand" style="string">/home/dogger/code/education/program/lab3/numbers_naive_result.txt</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="45" width="962" height="28" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">optimized_results_file</e>
+          <e type="operand" style="string">/home/dogger/code/education/program/lab3/numbers_optimized_result.txt</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="81" width="583" height="271" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">NaiveResults</e>
+          <e type="operand">naive_results_file</e>
+          <e type="function" args="1">importData</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1000</e>
+          <e type="operand">3</e>
+          <e type="operand">10000</e>
+          <e type="operand">89</e>
+          <e type="operand">20000</e>
+          <e type="operand">358</e>
+          <e type="operand">30000</e>
+          <e type="operand">838</e>
+          <e type="operand">40000</e>
+          <e type="operand">1453</e>
+          <e type="operand">50000</e>
+          <e type="operand">2161</e>
+          <e type="operand">60000</e>
+          <e type="operand">3379</e>
+          <e type="operand">70000</e>
+          <e type="operand">4314</e>
+          <e type="operand">80000</e>
+          <e type="operand">5958</e>
+          <e type="operand">90000</e>
+          <e type="operand">6629</e>
+          <e type="operand">1</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">8817</e>
+          <e type="operand">11</e>
+          <e type="operand">2</e>
+          <e type="function" args="24">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="126" top="252" width="633" height="271" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">OptimizedResults</e>
+          <e type="operand">optimized_results_file</e>
+          <e type="function" args="1">importData</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1000</e>
+          <e type="operand">0</e>
+          <e type="operand">10000</e>
+          <e type="operand">1</e>
+          <e type="operand">20000</e>
+          <e type="operand">2</e>
+          <e type="operand">30000</e>
+          <e type="operand">3</e>
+          <e type="operand">40000</e>
+          <e type="operand">3</e>
+          <e type="operand">50000</e>
+          <e type="operand">4</e>
+          <e type="operand">60000</e>
+          <e type="operand">5</e>
+          <e type="operand">70000</e>
+          <e type="operand">4</e>
+          <e type="operand">80000</e>
+          <e type="operand">5</e>
+          <e type="operand">90000</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">5</e>
+          <e type="operand">11</e>
+          <e type="operand">2</e>
+          <e type="function" args="24">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="9" top="531" width="381" height="190" color="#000000" fontSize="10">
+      <plot type="2d" render="lines" scale_x="0.00107380139671676" scale_y="0.000235381304190109" scale_z="0.00107380139671676" rotate_x="0" rotate_y="0" rotate_z="0" transpose_x="-142" transpose_y="-43" transpose_z="0">
+        <input>
+          <e type="operand">NaiveResults</e>
+        </input>
+      </plot>
+    </region>
+    <region left="414" top="531" width="342" height="191" color="#000000" fontSize="10">
+      <plot type="2d" render="lines" scale_x="0.888309513054861" scale_y="0.000142502853028431" scale_z="0.888309513054861" rotate_x="0" rotate_y="0" rotate_z="0" transpose_x="-36" transpose_y="-30" transpose_z="0">
+        <input>
+          <e type="operand">OptimizedResults</e>
+        </input>
+      </plot>
+    </region>
+  </regions>
+</worksheet>

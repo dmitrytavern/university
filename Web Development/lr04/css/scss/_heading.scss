@@ -1,0 +1,47 @@
+.heading-1,
+.heading-3 {
+  text-transform: uppercase;
+  font-family: $font-heading;
+}
+
+.heading-1 {
+  font-size: 34px;
+  font-weight: 700;
+  color: $color-gray-600;
+}
+
+.heading-3 {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: $color-gray-500;
+}
+
+@media (min-width: $grid-breakpoint-sm) {
+  .heading-1 {
+    font-size: 48px;
+  }
+
+  .heading-3 {
+    letter-spacing: 5px;
+    font-size: 22px;
+  }
+}
+
+@media (min-width: $grid-breakpoint-md) {
+  .heading-1 {
+    font-size: 64px;
+  }
+}
+
+@media (min-width: $grid-breakpoint-lg) {
+  .heading-1 {
+    font-size: 72px;
+  }
+}
+
+@media (min-width: $grid-breakpoint-xl) {
+  .heading-1 {
+    font-size: 90px;
+  }
+}

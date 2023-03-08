@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dmitry Tavern - lr05</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="preloader">
+    <div class="preloader__spiner"></div>
+  </div>
+
+  <header class="header">
+    <div class="header__inner">
+      <button class="btn header__menu">
+        <img src="img/ico-menu.svg" alt="" width="30" height="25">
+      </button>
+
+      <button class="btn header__search">
+        <img src="img/ico-search.svg" alt="" width="29" height="29">
+      </button>
+
+      <nav class="header__navigation">
+        <ul>
+          <li class="active">
+            <a href="#">
+              <svg>
+                <use xlink:href="img/ico-nav-home.svg#ico">
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg>
+                <use xlink:href="img/ico-nav-like.svg#ico">
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg>
+                <use xlink:href="img/ico-nav-settings.svg#ico">
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg>
+                <use xlink:href="img/ico-nav-question.svg#ico">
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div>
+    <main>
+      <div class="header-search-bar">
+        <label class="header-search-bar__inner">
+          <img src="img/ico-search.svg" alt="">
+          <input placeholder="Busca algo de nuestro menu..." type="text">
+        </label>
+      </div>
+
+      <h1 class="d-n md:d-b heading-h1">Categories</h1>
+      <p class="d-n md:d-b heading-text">Elige nuestras deliciosas pizzas</p>
+
+      <h1 class="md:d-n heading-h1">Pizza</h1>
+      <p class="md:d-n heading-text">Elige nuestras deliciosas pizzas</p>
+
+      <ul class="tab-controls mt-25">
+        <li class="active">
+          <a href="#">
+            <svg>
+              <use xlink:href="img/ico-category-2.svg#ico">
+            </svg>
+            <span>Pizzas</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg>
+              <use xlink:href="img/ico-category-3.svg#ico">
+            </svg>
+            <span>Empanadas</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg>
+              <use xlink:href="img/ico-category-4.svg#ico">
+            </svg>
+            <span>Bebidas</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg>
+              <use xlink:href="img/ico-category-1.svg#ico">
+            </svg>
+            <span>Postres</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="products mt-35">
+        <div class="product">
+          <a href="#">
+            <img class="product__thumbnail" src="img/img-pizza-1.png" alt="">
+          </a>
+
+          <div class="product__inner">
+            <div class="product__title">Pizza muzzarella</div>
+            <ins class="product__price">$ 1200.00</ins>
+            <button class="btn btn-add product__button">
+              <svg>
+                <use xlink:href="img/ico-plus.svg#ico">
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product">
+          <a href="#">
+            <img class="product__thumbnail" src="img/img-pizza-2.png" alt="">
+          </a>
+
+          <div class="product__inner">
+            <div class="product__title">Pizza muzzarella</div>
+            <ins class="product__price">$ 1200.00</ins>
+            <button class="btn btn-add product__button">
+              <svg>
+                <use xlink:href="img/ico-plus.svg#ico">
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product">
+          <a href="#">
+            <img class="product__thumbnail" src="img/img-pizza-3.png" alt="">
+          </a>
+
+          <div class="product__inner">
+            <div class="product__title">Pizza muzzarella</div>
+            <ins class="product__price">$ 1200.00</ins>
+            <button class="btn btn-add product__button">
+              <svg>
+                <use xlink:href="img/ico-plus.svg#ico">
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product">
+          <a href="#">
+            <img class="product__thumbnail" src="img/img-pizza-4.png" alt="">
+          </a>
+
+          <div class="product__inner">
+            <div class="product__title">Pizza muzzarella</div>
+            <ins class="product__price">$ 1200.00</ins>
+            <button class="btn btn-add product__button">
+              <svg>
+                <use xlink:href="img/ico-plus.svg#ico">
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar__inner">
+      <h2 class="d-n md:d-b heading-2">Mi orden</h2>
+
+      <div class="sidebar__checkout md:mt-25">
+        <div>Checkout</div>
+        <button class="btn btn-close sidebar__close">
+          <svg>
+            <use xlink:href="img/ico-close.svg#ico">
+          </svg>
+        </button>
+      </div>
+      <div class="sidebar__txt">Confirme su pedido</div>
+
+      <div class="sidebar__alert mt-30">
+        <img src="img/ico-info.svg" alt="">
+        <div>
+          El pago se efectuará al llegar la orden, especificamente
+          en efectivo y el envío es propio del negocio. Al finalizar el
+          checkout le llegará el recibo vía whatsapp.
+        </div>
+      </div>
+
+      <ul class="sidebar__info-list mt-30">
+        <li>
+          <div class="title">Ingrese su nombre *</div>
+          <div class="value">John Doe</div>
+        </li>
+        <li>
+          <div class="title">Ingrese su número de teléfono *</div>
+          <div class="value">11 9999-9999</div>
+        </li>
+        <li>
+          <div class="title">Ingrese su documento de identidad</div>
+          <div class="value">99.999.999</div>
+        </li>
+      </ul>
+
+      <button class="btn btn-secondary sidebar__submit">Generar recibo</button>
+    </div>
+  </aside>
+</body>
