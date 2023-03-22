@@ -5,15 +5,13 @@ class MainWindow : public QWidget
 public:
   MainWindow(QWidget *parent = nullptr) : QWidget(parent)
   {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QHBoxLayout *layout = new QHBoxLayout(this);
+    QFont labelFont("Arial", 11);
 
-    // Image layout
-    image = new QLabel(this);
-    image->setPixmap(QPixmap(":/resources/1.png"));
-    image->setFixedSize(400, 400);
-
-    QVBoxLayout *imageLayout = new QVBoxLayout();
-    imageLayout->addWidget(image);
+    // Image radio buttons
+    QLabel *imageLabel = new QLabel("Select image:");
+    imageLabel->setFont(labelFont);
+    imageLabel->setContentsMargins(0, 30, 0, 0);
 
     imageButtonGroup = new QButtonGroup(this);
     imageButtonGroup->setExclusive(true);
@@ -21,32 +19,54 @@ public:
     imageButton1 = new QRadioButton("Image 1");
     imageButton2 = new QRadioButton("Image 2");
     imageButton3 = new QRadioButton("Image 3");
+    imageButton1->setChecked(true);
+
     imageButtonGroup->addButton(imageButton1, 0);
     imageButtonGroup->addButton(imageButton2, 1);
     imageButtonGroup->addButton(imageButton3, 2);
 
-    QHBoxLayout *imageButtonLayout = new QHBoxLayout();
+    QVBoxLayout *imageButtonLayout = new QVBoxLayout();
+    imageButtonLayout->addWidget(imageLabel);
     imageButtonLayout->addWidget(imageButton1);
     imageButtonLayout->addWidget(imageButton2);
     imageButtonLayout->addWidget(imageButton3);
 
-    mainLayout->addLayout(imageLayout);
-    mainLayout->addLayout(imageButtonLayout);
+    // Color radio buttons
+    QLabel *colorLabel = new QLabel("Select background:");
+    colorLabel->setFont(labelFont);
+    colorLabel->setContentsMargins(0, 30, 0, 0);
 
-    // Color layout
     colorButtonGroup = new QButtonGroup(this);
     colorButtonGroup->setExclusive(true);
 
     colorButton1 = new QRadioButton("Add background");
     colorButton2 = new QRadioButton("Remove background");
+    colorButton2->setChecked(true);
+
     colorButtonGroup->addButton(colorButton1, 0);
     colorButtonGroup->addButton(colorButton2, 1);
 
-    QHBoxLayout *colorButtonLayout = new QHBoxLayout();
+    QVBoxLayout *colorButtonLayout = new QVBoxLayout();
+    colorButtonLayout->addWidget(colorLabel);
     colorButtonLayout->addWidget(colorButton1);
     colorButtonLayout->addWidget(colorButton2);
 
-    mainLayout->addLayout(colorButtonLayout);
+    // Add image
+    QVBoxLayout *imageLayout = new QVBoxLayout();
+    image = new QLabel(this);
+    image->setPixmap(QPixmap(":/resources/1.png"));
+    image->setFixedSize(400, 400);
+    imageLayout->addWidget(image);
+
+    // Setting buttons to one layout
+    QVBoxLayout *buttonsLayout = new QVBoxLayout();
+    buttonsLayout->addLayout(imageButtonLayout);
+    buttonsLayout->addLayout(colorButtonLayout);
+    buttonsLayout->setAlignment(Qt::AlignTop);
+
+    // Setting main layout
+    layout->addLayout(buttonsLayout);
+    layout->addLayout(imageLayout);
 
     connect(imageButtonGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &MainWindow::onImageGroupButtonClicked);
 
@@ -104,7 +124,7 @@ int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
   MainWindow mainWindow;
-  mainWindow.setGeometry(500, 500, 670, 650);
+  mainWindow.setFixedSize(740, 500);
   mainWindow.setWindowTitle("Lab 2 - Radio buttons");
   mainWindow.show();
   return app.exec();
