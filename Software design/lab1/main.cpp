@@ -1,44 +1,75 @@
 #include <QtWidgets>
 
+bool isPrime(int number, int index)
+{
+  int _index = index + 1;
+  if (_index < number && (number % _index) != 0)
+    return isPrime(number, _index);
+  return _index == number;
+}
+
 class MainWindow : public QWidget
 {
 public:
   MainWindow(QWidget *parent = nullptr) : QWidget(parent)
   {
-    m_label = new QLabel("Enter your name:", this);
-    m_lineEdit = new QLineEdit(this);
-    m_button = new QPushButton("Submit", this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    QFont labelFont("Arial", 16);
 
-    m_label->setGeometry(10, 10, 150, 25);
-    m_lineEdit->setGeometry(10, 35, 150, 25);
-    m_button->setGeometry(10, 70, 150, 25);
+    layoutLabel = new QLabel("Enter number:");
+    layoutLabel->setFont(labelFont);
+    layout->addWidget(layoutLabel);
 
-    connect(m_button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
+    layoutInput = new QLineEdit();
+    layoutInput->setValidator(new QIntValidator());
+    layout->addWidget(layoutInput);
+
+    layoutButton = new QPushButton("Submit");
+    layoutButton->setEnabled(false);
+    layout->addWidget(layoutButton);
+
+    layoutResult = new QLabel("Result: ");
+    layout->addWidget(layoutResult);
+
+    layout->setAlignment(Qt::AlignTop);
+
+    connect(layoutButton, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
+    connect(layoutInput, &QLineEdit::textChanged, this, &MainWindow::onInputEditLineHandler);
   }
 
 private slots:
   void onButtonClicked()
   {
-    QString name = m_lineEdit->text();
+    int number = layoutInput->text().toInt();
 
-    QString message = "Hello, " + name + "!";
-    QLabel *greetingLabel = new QLabel(message, this);
-    greetingLabel->setGeometry(10, 110, 150, 25);
-    greetingLabel->show();
+    if (isPrime(number, 1))
+    {
+      layoutResult->setText("Result: is prime number");
+    }
+    else
+    {
+      layoutResult->setText("Result: is not prime number");
+    }
+  }
+
+  void onInputEditLineHandler(const QString &text)
+  {
+    layoutButton->setEnabled(!text.isEmpty() && text.toInt() >= 0);
   }
 
 private:
-  QLabel *m_label;
-  QLineEdit *m_lineEdit;
-  QPushButton *m_button;
+  QLabel *layoutLabel;
+  QLabel *layoutResult;
+  QLineEdit *layoutInput;
+  QPushButton *layoutButton;
 };
 
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
   MainWindow mainWindow;
-  mainWindow.setGeometry(100, 100, 170, 150);
-  mainWindow.setWindowTitle("Lab 1 - Input/Output");
+  mainWindow.setFixedSize(400, 150);
+  mainWindow.setWindowTitle("Lab 1 - Finding prime number");
   mainWindow.show();
   return app.exec();
 }
