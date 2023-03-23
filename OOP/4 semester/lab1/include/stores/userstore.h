@@ -1,16 +1,16 @@
 #pragma once
 #include <vector>
 #include <iostream>
-#include "./users/User.h"
+#include "../users/user.h"
 
 class UserStore
 {
 public:
-  static std::vector<User *> getUsers();
-  static void addUser(User *user);
+  static std::vector<Account *> getUsers();
+  static void addUser(Account *user);
   static void removeUser(int index);
   static void printUsers();
 
 private:
-  static std::vector<User *> users;
+  static std::vector<Account *> users;
 };

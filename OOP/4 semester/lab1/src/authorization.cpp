@@ -1,9 +1,9 @@
-#include "./Authorization.h"
+#include "authorization.h"
 
-User *Authorization::user = nullptr;
+Account *Authorization::user = nullptr;
 std::vector<AuthRules> Authorization::rules = {};
 
-User *Authorization::get()
+Account *Authorization::get()
 {
   return Authorization::user;
 }

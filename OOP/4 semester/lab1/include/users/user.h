@@ -1,16 +1,13 @@
 #pragma once
 #include <iostream>
-#include "./User.h"
+#include "./account.h"
 
-class UserModerator : public User
+class User : public Account
 {
 public:
-  UserModerator(std::string username);
+  User(std::string username);
 
 protected:
   void printActions(char *input) override;
   void activateAction(char *input) override;
-
-private:
-  void actionSetUserName();
 };

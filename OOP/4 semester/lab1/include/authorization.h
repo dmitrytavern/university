@@ -1,10 +1,10 @@
 #pragma once
 #include <vector>
-#include "./users/User.h"
+#include "./users/user.h"
 
 struct AuthRules
 {
-  User *user;
+  Account *user;
   std::string username;
   std::string password;
 };
@@ -12,11 +12,11 @@ struct AuthRules
 class Authorization
 {
 public:
-  static User *get();
+  static Account *get();
   static int auth(std::string username, std::string password);
   static void addRule(AuthRules rule);
 
 private:
-  static User *user;
+  static Account *user;
   static std::vector<AuthRules> rules;
 };

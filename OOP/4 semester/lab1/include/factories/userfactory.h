@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "./users/User.h"
-#include "./users/UserAdmin.h"
-#include "./users/UserModerator.h"
+#include "../users/user.h"
+#include "../users/useradmin.h"
+#include "../users/usermoderator.h"
 
 struct UserData
 {

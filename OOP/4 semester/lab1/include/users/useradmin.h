@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "./User.h"
+#include "./account.h"
 
-class UserAdmin : public User
+class UserAdmin : public Account
 {
 public:
   UserAdmin(std::string username);
@@ -10,8 +10,4 @@ public:
 protected:
   void printActions(char *input) override;
   void activateAction(char *input) override;
-
-private:
-  void actionSetUserName();
-  void actionDeleteUser();
 };

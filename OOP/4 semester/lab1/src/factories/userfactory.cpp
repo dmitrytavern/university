@@ -1,14 +1,14 @@
 #include <iostream>
-#include "./users/User.h"
-#include "./users/UserAdmin.h"
-#include "./users/UserModerator.h"
-#include "./UserFactory.h"
-#include "./UserStore.h"
-#include "./Authorization.h"
+#include "users/user.h"
+#include "users/useradmin.h"
+#include "users/usermoderator.h"
+#include "factories/userfactory.h"
+#include "stores/userstore.h"
+#include "authorization.h"
 
 void UserFactory::createUser(UserData data)
 {
-  User *user;
+  Account *user;
 
   if (data.role == "admin")
   {

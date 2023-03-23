@@ -1,5 +1,5 @@
-#include "./Authorization.h"
-#include "./UserFactory.h"
+#include "authorization.h"
+#include "factories/userfactory.h"
 
 int main()
 {
@@ -38,7 +38,7 @@ int main()
     }
   } while (login == 0);
 
-  User *user = Authorization::get();
+  Account *user = Authorization::get();
 
-  user->openActionsMenu();
+  user->init();
 }
