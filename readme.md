@@ -6,5 +6,6 @@ This repository contains solutions for laboratory tasks of the university. Conte
 - Subject: **Discrete structures** - studying discrete structures such as fuzzy logic using MatLab Fuzzy Logic Toolbox.
 - Subject: **Math Methods** - studying to program calculus and solve mathematical and engineering problems using MathCad or its equivalent.
 - Subject: **OOP** (Object-oriented programming) - studying the basic principles of OOP.
+- Subject: **Operating system** - studying operating systems and writing assembly code.
 - Subject: **Software design** - studying to design software with Qt.
 - Subject: **Web Development** - studying web development (HTML / CSS), as well as ways to simplify working with them.
