@@ -16,11 +16,9 @@ EXTERN 	wsprintfA:NEAR
 
 .code
 START:
-	mov eax, a
-	mov ebx, b
-	xchg eax, ebx
-	mov a, eax
-	mov b, ebx
+  mov eax, a
+  xchg eax, b
+  xchg eax, a
 
 	push b
 	push a
