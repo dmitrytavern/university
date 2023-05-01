@@ -34,52 +34,49 @@ EXTERN wsprintfA:NEAR
 .code
 START:
   ; z = a + b
-  mov eax, DWORD PTR a
-  mov ebx, DWORD PTR b
+  mov eax, a
+  mov ebx, b
   add eax, ebx
-  mov DWORD PTR z, eax
+  mov z, eax
 
   ; y = a - b
-  mov eax, DWORD PTR a
-  mov ebx, DWORD PTR b
+  mov eax, a
+  mov ebx, b
   sub eax, ebx
-  mov DWORD PTR y, eax
+  mov y, eax
 
   ; x = a * b
-  mov eax, DWORD PTR a
-  mov ebx, DWORD PTR b
+  mov eax, a
+  mov ebx, b
   imul ebx
-  mov DWORD PTR x, eax
-  mov DWORD PTR x+4, edx
+  mov x, eax
 
   ; w = a / b
-  mov eax, DWORD PTR a
-  mov ebx, DWORD PTR b
-  cdq
+  mov eax, a
+  mov ebx, b
   idiv ebx
-  mov DWORD PTR w, eax
+  mov w, eax
 
   ; v = a % b
-  mov eax, DWORD PTR a
-  mov ebx, DWORD PTR b
-  cdq
+  mov eax, a
+  mov ebx, b
   idiv ebx
-  mov DWORD PTR v, edx
+  mov v, edx
 
   ; u = z + 1
-  mov eax, DWORD PTR z
-  add eax, 1
-  mov DWORD PTR u, eax
+  mov eax, z
+  inc eax
+  mov u, eax
 
   ; t = y + 1
-  mov eax, DWORD PTR y
-  add eax, 1
-  mov DWORD PTR t, eax
+  mov eax, y
+  inc eax
+  mov t, eax
 
   ; s = x - 1
-  mov eax, DWORD PTR x
-  sub eax, 1
-  mov DWORD PTR s, eax
+  mov eax, x
+  dec eax
+  mov s, eax
 
   push s
   push t
