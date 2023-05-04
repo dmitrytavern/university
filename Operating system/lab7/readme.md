@@ -1,4 +1,4 @@
-# Lab 6
+# Lab 7
 
 Task: write a program in MASM that will implement the following equation:
 
