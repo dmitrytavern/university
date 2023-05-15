@@ -60,6 +60,7 @@ START:
   ; v = a % b
   mov eax, a
   mov ebx, b
+  xor edx, edx
   idiv ebx
   mov v, edx
 
