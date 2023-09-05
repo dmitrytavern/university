@@ -9,3 +9,4 @@ This repository contains solutions for laboratory tasks of the university. Conte
 - Subject: **Operating system** - studying operating systems and writing assembly code.
 - Subject: **Software design** - studying to design software with Qt.
 - Subject: **Web Development** - studying web development (HTML / CSS), as well as ways to simplify working with them.
+- Subject: **Software modeling** - study of programming patterns on C#.
