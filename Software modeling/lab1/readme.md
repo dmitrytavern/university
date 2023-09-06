@@ -1,28 +1,28 @@
 # Lab 1
 
-Описать базовый класс String:
+Describe the basic String class:
 
-- Поля класса:
+- Class fields:
 
-  - поле для хранения символов строки
-  - значение типа word для хранения длины строки в байтах
+  - a field for storing period characters
+  - word type value for storing the string length in bytes
 
-- Методы класса:
+- Class methods:
 
-  - конструктор без параметров
-  - конструктор, принимающий в качестве параметра строковый литерал
-  - конструктор, принимающий в качестве параметра символ
-  - метод получения длины строки
-  - метод очистки строки (сделать строку пустой)
+  - constructor without parameters
+  - a constructor that takes a string literal as a parameter
+  - a constructor that accepts a symbol as a parameter
+  - the method of obtaining the length of the term
+  - method of clearing the term (make the term empty)
 
-Описать производный от String класс DecimalString. Строки данного класса могут содержать только символы десятичных цифр и символы - и +, задающие знак числа. Символы - или + могут находиться только в первой позиции числа, причем символ + может отсутствовать, в этом случае число считается положительным. Если в составе инициализирующей строки будут встречены любые символы, отличные от допустимых, класс принимает нулевое значение. Содержимое данных строк рассматривается как десятичное число.
+Describe the DecimalString class derived from String. Strings of this class can contain only symbols of decimal digits and symbols - and +, specifying the sign of the number. The symbols - or + can be found only in the first position of the number, and the symbol + can be absent, in which case the number is considered positive. If any characters other than the allowed characters are found in the initialization string, the class takes a null value. The content of the given string is treated as a decimal number.
 
-Методы класса:
+Class methods:
 
-- конструктор, принимающий в качестве параметра число
-- арифметическая разность строк
-- проверка на больше (по значению)
-- проверка на меньше (по значению)
+- a constructor that accepts a number as a parameter
+- arithmetic difference of terms
+- check for more (by value)
+- check for less (by value)
 
 ## Результат
 
