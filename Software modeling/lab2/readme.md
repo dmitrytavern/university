@@ -8,3 +8,4 @@ Subject area - Cafe. It is necessary to apply the Factory method pattern in orde
 <img src=".github/image02.png">
 <img src=".github/image03.png">
 <img src=".github/image04.png">
+<img src=".github/image05.png">
