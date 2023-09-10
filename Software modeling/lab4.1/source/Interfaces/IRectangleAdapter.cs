@@ -1,0 +1,7 @@
+﻿namespace App.Interfaces
+{
+    interface IRectangleAdapter
+    {
+        void Display(int x1, int y1, int x2, int y2);
+    }
+}
