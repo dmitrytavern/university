@@ -2,6 +2,7 @@
 {
     enum IteratorsEnum
     {
+        ByDefault,
         ByRank,
         ByRang,
         ByGroup,

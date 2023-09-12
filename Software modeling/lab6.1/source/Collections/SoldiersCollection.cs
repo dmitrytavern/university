@@ -20,6 +20,11 @@ namespace App.Collections
             _collection.Add(item);
         }
 
+        public void RemoveItem(ISoldier item)
+        {
+            _collection.Remove(item);
+        }
+
         public void SetIterator(IteratorsEnum iterator)
         {
             currectIterator = iterator;
@@ -29,6 +34,8 @@ namespace App.Collections
         {
             switch(currectIterator)
             {
+                case IteratorsEnum.ByDefault:
+                    return _collection.GetEnumerator();
                 case IteratorsEnum.ByRank:
                     return new RankIterator(this);
                 case IteratorsEnum.ByRang:

@@ -44,6 +44,7 @@
             label7 = new Label();
             textBoxSoldierName = new TextBox();
             listBox2 = new ListBox();
+            buttonRemoveSoldier = new Button();
             SuspendLayout();
             // 
             // label1
@@ -61,7 +62,7 @@
             listBox1.ItemHeight = 32;
             listBox1.Location = new Point(386, 82);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(623, 388);
+            listBox1.Size = new Size(623, 452);
             listBox1.TabIndex = 1;
             // 
             // comboBoxSoldierType
@@ -111,7 +112,7 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(35, 424);
+            buttonAdd.Location = new Point(35, 436);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(295, 46);
             buttonAdd.TabIndex = 7;
@@ -158,7 +159,7 @@
             // 
             // buttonSort
             // 
-            buttonSort.Location = new Point(1707, 424);
+            buttonSort.Location = new Point(1707, 489);
             buttonSort.Name = "buttonSort";
             buttonSort.Size = new Size(295, 46);
             buttonSort.TabIndex = 13;
@@ -188,14 +189,25 @@
             listBox2.ItemHeight = 32;
             listBox2.Location = new Point(1038, 83);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(623, 388);
+            listBox2.Size = new Size(623, 452);
             listBox2.TabIndex = 16;
+            // 
+            // buttonRemoveSoldier
+            // 
+            buttonRemoveSoldier.Location = new Point(35, 488);
+            buttonRemoveSoldier.Name = "buttonRemoveSoldier";
+            buttonRemoveSoldier.Size = new Size(295, 46);
+            buttonRemoveSoldier.TabIndex = 17;
+            buttonRemoveSoldier.Text = "Remove soldier";
+            buttonRemoveSoldier.UseVisualStyleBackColor = true;
+            buttonRemoveSoldier.Click += buttonRemoveSoldier_Click;
             // 
             // App
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2040, 522);
+            ClientSize = new Size(2040, 591);
+            Controls.Add(buttonRemoveSoldier);
             Controls.Add(listBox2);
             Controls.Add(textBoxSoldierName);
             Controls.Add(label7);
@@ -237,5 +249,6 @@
         private Label label7;
         private TextBox textBoxSoldierName;
         private ListBox listBox2;
+        private Button buttonRemoveSoldier;
     }
 }

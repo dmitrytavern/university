@@ -23,5 +23,10 @@ namespace App.Entities
             Rang = rang;
             Rank = rank;
         }
+
+        public override string ToString()
+        {
+            return Name + " (" + Group + " " + Rang + " " + Rank + ")";
+        }
     }
 }
