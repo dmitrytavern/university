@@ -105,7 +105,7 @@
             Controls.Add(buttonAddVegetation);
             Controls.Add(comboBoxEnv);
             Name = "App";
-            Text = "Form1";
+            Text = "Laboratory Work 3.2";
             Load += App_Load;
             ResumeLayout(false);
             PerformLayout();

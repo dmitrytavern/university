@@ -181,7 +181,7 @@
             Controls.Add(comboBoxAgency);
             Controls.Add(label1);
             Name = "App";
-            Text = "Form1";
+            Text = "Laboratory Work 7.1";
             Load += App_Load;
             ResumeLayout(false);
             PerformLayout();

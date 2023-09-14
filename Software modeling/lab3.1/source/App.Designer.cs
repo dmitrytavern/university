@@ -247,7 +247,7 @@
             ClientSize = new Size(986, 635);
             Controls.Add(tabControl);
             Name = "App";
-            Text = "Form1";
+            Text = "Laboratory Work 3.1";
             Load += App_Load;
             tabControl.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

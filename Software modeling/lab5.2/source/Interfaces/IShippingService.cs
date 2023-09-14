@@ -1,6 +1,4 @@
-﻿using App.Entities;
-
-namespace App.Interfaces
+﻿namespace App.Interfaces
 {
     interface IShippingService
     {

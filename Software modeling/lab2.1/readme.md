@@ -9,3 +9,11 @@ Subject area - Cafe. It is necessary to apply the Factory method pattern in orde
 <img src=".github/image03.png">
 <img src=".github/image04.png">
 <img src=".github/image05.png">
+
+## Comment
+
+Not a difficult, but very indicative task for the practice of the Factory Pattern. Changes:
+
+- Other products have been added.
+- Products were added to Enum to create some kind of single source of truth (something like constants).
+- The product quantity has been moved to a separate class (**CreatorProduct**), which is a wrapper over the product class. This is done for the sake of the principle of shared responsibility and to increase flexibility.

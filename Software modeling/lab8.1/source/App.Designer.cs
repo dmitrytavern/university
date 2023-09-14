@@ -183,7 +183,7 @@
             Controls.Add(label1);
             Controls.Add(buttonDiagnose);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Laboratory Work 8.1";
             ((System.ComponentModel.ISupportInitialize)numericPatientTemperature).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -1,6 +1,6 @@
 ﻿namespace App
 {
-    partial class Form1
+    partial class App
     {
         /// <summary>
         ///  Required designer variable.
@@ -156,7 +156,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(877, 450);
+            ClientSize = new Size(877, 362);
             Controls.Add(labelResult);
             Controls.Add(textBoxLastName);
             Controls.Add(label5);
@@ -170,7 +170,7 @@
             Controls.Add(numericEarnings);
             Controls.Add(label1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Laboratory Work 5.1";
             ((System.ComponentModel.ISupportInitialize)numericEarnings).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericCredit).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericPrice).EndInit();

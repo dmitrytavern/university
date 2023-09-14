@@ -3,7 +3,7 @@ using App.Interfaces;
 
 namespace App.Agencies
 {
-    internal class WorkUA : IAgency
+    class WorkUA : IAgency
     {
         private readonly List<IObserver> observers = new();
         private readonly List<VacanciesEnum> vacancies = new();

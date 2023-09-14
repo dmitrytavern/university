@@ -4,7 +4,7 @@ using App.Interfaces;
 
 namespace App.Factories
 {
-    internal class EmployeeFactory
+    class EmployeeFactory
     {
         private static DateTime dateCount = DateTime.Now;
 

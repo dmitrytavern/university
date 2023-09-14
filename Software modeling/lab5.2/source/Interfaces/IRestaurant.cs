@@ -1,5 +1,4 @@
-﻿using App.Entities;
-using App.Enums;
+﻿using App.Enums;
 
 namespace App.Interfaces
 {

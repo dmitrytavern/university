@@ -117,7 +117,7 @@
             Controls.Add(buttonAttack);
             Controls.Add(listBox1);
             Name = "App";
-            Text = "Form1";
+            Text = "Laboratory Work 4.2";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -4,11 +4,11 @@ using App.Bank.Factories;
 
 namespace App
 {
-    public partial class Form1 : Form
+    public partial class App : Form
     {
         private readonly MortgageFacade mortgage = new();
 
-        public Form1()
+        public App()
         {
             InitializeComponent();
         }
@@ -26,8 +26,8 @@ namespace App
             }
 
             Customer customer = CustomerFactory.CreateCustomer(
-                textBoxFirstName.Text, 
-                textBoxLastName.Text, 
+                textBoxFirstName.Text,
+                textBoxLastName.Text,
                 numericEarnings.Value
             );
 

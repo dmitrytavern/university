@@ -225,7 +225,7 @@
             Controls.Add(listBox1);
             Controls.Add(label1);
             Name = "App";
-            Text = "Form1";
+            Text = "Laboratory Work 6.1";
             Load += App_Load;
             ResumeLayout(false);
             PerformLayout();

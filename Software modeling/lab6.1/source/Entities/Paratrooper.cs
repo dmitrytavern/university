@@ -3,7 +3,7 @@ using App.Interfaces;
 
 namespace App.Entities
 {
-    class Infantryman : ISoldier
+    class Paratrooper : ISoldier
     {
         public string Id { get; }
 
@@ -15,11 +15,11 @@ namespace App.Entities
 
         public RanksEnum Rank { get; }
 
-        public Infantryman(string name, RangsEnum rang, RanksEnum rank)
+        public Paratrooper(string name, RangsEnum rang, RanksEnum rank)
         {
             Id = DateTime.Now.ToString();
             Name = name;
-            Group = SoldiersEnum.Infantryman;
+            Group = SoldiersEnum.Paratrooper;
             Rang = rang;
             Rank = rank;
         }

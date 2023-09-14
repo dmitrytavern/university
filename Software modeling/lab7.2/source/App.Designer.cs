@@ -90,7 +90,7 @@
             Controls.Add(buttonAddMessage);
             Controls.Add(label1);
             Name = "App";
-            Text = "Form1";
+            Text = "Laboratory Work 7.2";
             Load += App_Load;
             ResumeLayout(false);
             PerformLayout();

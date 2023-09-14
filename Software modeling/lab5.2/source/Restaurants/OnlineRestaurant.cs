@@ -1,5 +1,4 @@
-﻿using App.Entities;
-using App.Entities.Products;
+﻿using App.Entities.Products;
 using App.Enums;
 using App.Interfaces;
 
