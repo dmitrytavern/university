@@ -4,7 +4,9 @@ This repository contains solutions for laboratory tasks of the university. Conte
 
 - Subject: **ADS** (Algorithms and data structures) - studying simple algorithms with functions, studying one-linked lists, two-linked lists, binary trees, stacks, queues, deques, graphs, as well as related algorithms.
 - Subject: **Discrete structures** - studying discrete structures such as fuzzy logic using MatLab Fuzzy Logic Toolbox.
-- Subject: **Math Methods** - studying to program calculus and solve mathematical and engineering problems using MathCad or its equivalent.
+- Subject: **Information security** - study of security methods in programming.
+- Subject: **Math methods** - studying to program calculus and solve mathematical and engineering problems using MathCad or its equivalent.
+- Subject: **Math modeling** - study of modeling of complex objects and systems.
 - Subject: **OOP** (Object-oriented programming) - studying the basic principles of OOP.
 - Subject: **Operating system** - studying operating systems and writing assembly code.
 - Subject: **Software design** - studying to design software with Qt.

@@ -7,3 +7,12 @@ Task: Solve the system of linear equations using the Jordan-Haus method. Compare
 ## Screenshots
 
 <img src=".github/image2.png">
+
+## How to run
+
+Run in terminal:
+
+```
+npm ci
+npm run start
+```

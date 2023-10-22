@@ -5,4 +5,12 @@ Task: write code that will take the name/surname from a file and encode it by He
 ## Screenshots
 
 <img src="./.github/image1.png">
-W
+
+## How to run
+
+Run in terminal:
+
+```
+npm ci
+npm run start
+```
