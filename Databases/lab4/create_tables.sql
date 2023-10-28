@@ -13,8 +13,8 @@ CREATE TABLE clients(
 	first_name CHAR(255),
 	last_name CHAR(255),
 	middle_name CHAR(255),
-	address_name CHAR(100),
-	phone_name CHAR(10),
+	address CHAR(100),
+	phone CHAR(20),
 )
 
 CREATE TABLE issued_cars(
