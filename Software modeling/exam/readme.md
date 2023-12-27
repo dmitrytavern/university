@@ -1,0 +1,3 @@
+# Exam
+
+Pattern: Strategy
