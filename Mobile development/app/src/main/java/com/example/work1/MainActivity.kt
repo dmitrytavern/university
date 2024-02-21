@@ -18,13 +18,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.ui.res.painterResource
+import com.example.work1.ui.theme.AppTheme
+import androidx.compose.foundation.border
+import androidx.compose.material3.MaterialTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MessageCard(Message("Android", "Jetpack Compose"))
+            AppTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    MessageCard(Message("Android", "Jetpack Compose"))
+                }
+            }
         }
     }
 }
@@ -40,14 +49,27 @@ fun MessageCard(msg: Message) {
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
+                .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
         )
 
         Spacer(modifier = Modifier.width(8.dp))
 
         Column {
-            Text(text = msg.author)
+            Text(
+                text = msg.author,
+                color = MaterialTheme.colorScheme.secondary,
+                style = MaterialTheme.typography.titleSmall
+            )
+
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = msg.body)
+
+            Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
+                Text(
+                    text = msg.body,
+                    modifier = Modifier.padding(all = 4.dp),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
         }
     }
 }
@@ -55,7 +77,11 @@ fun MessageCard(msg: Message) {
 @Preview
 @Composable
 fun PreviewMessageCard() {
-    MessageCard(
-        msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
-    )
+    AppTheme {
+        Surface {
+            MessageCard(
+                msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
+            )
+        }
+    }
 }
