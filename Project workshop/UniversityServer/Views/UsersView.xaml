@@ -5,14 +5,65 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:UniversityServer.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="750">
     <UserControl.DataContext>
         <vm:UsersViewModel />
     </UserControl.DataContext>
 
-    <Grid>
-        <TextBlock FontSize="40" FontWeight="Bold" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center" 
-                   Text="{Binding Title}"/>
+    <Grid Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="160" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" Text="Users" Margin="0,0,0,6" />
+
+        <ListView x:Name="TeachersViewList" Grid.Row="1" ItemsSource="{Binding Teachers, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectionChanged="TeachersViewList_SelectionChanged" SelectionMode="Single" Margin="0,0,0,12" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding id}" Width="35px">Id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Width="150px">Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding surname}" Width="150px">Surname</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding email}" Width="170px">Email</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding password}" Width="200px">Password</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock Grid.Row="2" FontSize="22" FontWeight="Bold" Text="Users form" Margin="0,0,0,6" />
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="0,0,0,4" />
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,0,0,6" />
+                </Style>
+            </Grid.Resources>
+
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="Name:" />
+                <TextBox Text="{Binding InputTeacherName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBlock Text="Surname:" />
+                <TextBox Text="{Binding InputTeacherSurname, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBlock Text="Email:" />
+                <TextBox Text="{Binding InputTeacherEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBlock Text="Password:" />
+                <TextBox Text="{Binding InputTeacherPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <Button x:Name="EditButton" Height="47" FontSize="16" FontWeight="Medium" Click="EditButton_Click" IsEnabled="False">Edit user</Button>
+                <Button x:Name="DeleteButton" Height="47" FontSize="16" FontWeight="Medium" Click="DeleteButton_Click" IsEnabled="False">Delete user</Button>
+                <Button x:Name="CreateButton" Height="47" FontSize="16" FontWeight="Medium" Click="CreateButton_Click">Create new user</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

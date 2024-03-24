@@ -9,9 +9,9 @@ namespace UniversityServer.Views
         {
             InitializeComponent();
 
-            ServerPortInput.Text = MainWindow.ServerPort;
+            ServerPortInput.Text = App.ServerPort;
 
-            if (MainWindow.ServerActive)
+            if (App.ServerActive)
             {
                 SetOnlineState();
             }
@@ -23,7 +23,7 @@ namespace UniversityServer.Views
 
         private void ServerPortInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MainWindow.ServerPort = (string)ServerPortInput.Text;
+            App.ServerPort = ServerPortInput.Text;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -31,8 +31,7 @@ namespace UniversityServer.Views
             try
             {
                 SetOnlineState();
-
-                MainWindow.StartServer();
+                App.StartServer();
             }
             catch (Exception ex)
             {
@@ -45,8 +44,7 @@ namespace UniversityServer.Views
             try
             {
                 SetOfflineState();
-
-                MainWindow.StopServer();
+                App.StopServer();
             } catch(Exception ex)
             {
                 SetError(ex);

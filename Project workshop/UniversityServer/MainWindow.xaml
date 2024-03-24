@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:components="clr-namespace:UniversityServer.Components"
         mc:Ignorable="d"
-        Closing="Window_Closing"
         Title="University Server" WindowStartupLocation="CenterScreen" Height="450" Width="800" Background="#FFEAEBEC">
 
     <Grid>

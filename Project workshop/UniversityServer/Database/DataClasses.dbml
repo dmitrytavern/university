@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="" Member="Teachers">
+    <Type Name="Teachers">
+      <Column Member="id" AutoSync="Never" Type="System.Int32" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Member="name" Type="System.String" CanBeNull="false" />
+      <Column Member="surname" Type="System.String" CanBeNull="false" />
+      <Column Member="email" Type="System.String" CanBeNull="false" />
+      <Column Member="password" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
