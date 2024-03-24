@@ -1,14 +1,11 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
+using UniversityServer.Database;
 
 namespace UniversityClient
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        public static string ApiUrl { get; set; } = "";
+        public static Teachers? CurrentUser { get; set; }
     }
-
 }

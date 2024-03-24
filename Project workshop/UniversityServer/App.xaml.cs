@@ -73,6 +73,13 @@ namespace UniversityServer
                     HttpListenerRequest request = context.Request;
                     HttpListenerResponse response = context.Response;
 
+                    switch(request.Url?.AbsolutePath)
+                    {
+                        case "/login":
+                            AppRouter.Login(request, response);
+                            return;
+                    }
+
                     byte[] buffer = Encoding.UTF8.GetBytes("Hello my client!");
 
                     response.ContentType = "text/plain";
