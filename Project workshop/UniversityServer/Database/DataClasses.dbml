@@ -6,6 +6,17 @@
       <Column Name="surname" Type="System.String" CanBeNull="false" />
       <Column Name="email" Type="System.String" CanBeNull="false" />
       <Column Name="password" Type="System.String" CanBeNull="false" />
+      <Association Name="Raports_Teachers" Member="Raports" ThisKey="id" OtherKey="teacher_id" Type="Raports" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Raports">
+    <Type Name="Raports">
+      <Column Name="id" AutoSync="Never" Type="System.Int32" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="teacher_id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="name" Type="System.String" CanBeNull="false" />
+      <Column Name="hours" Type="System.Double" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" CanBeNull="false" />
+      <Association Name="Raports_Teachers" Member="Teachers" ThisKey="teacher_id" OtherKey="id" Type="Teachers" />
     </Type>
   </Table>
 </Database>

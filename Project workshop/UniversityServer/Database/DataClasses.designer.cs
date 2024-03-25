@@ -32,6 +32,9 @@ namespace UniversityServer.Database
     partial void InsertTeachers(Teachers instance);
     partial void UpdateTeachers(Teachers instance);
     partial void DeleteTeachers(Teachers instance);
+    partial void InsertRaports(Raports instance);
+    partial void UpdateRaports(Raports instance);
+    partial void DeleteRaports(Raports instance);
     #endregion
 		
 		public DataClassesDataContext(string connection) : 
@@ -65,6 +68,14 @@ namespace UniversityServer.Database
 				return this.GetTable<Teachers>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Raports> Raports
+		{
+			get
+			{
+				return this.GetTable<Raports>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -83,6 +94,8 @@ namespace UniversityServer.Database
 		
 		private string _password;
 		
+		private EntityRef<Raports> _Raports;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -99,6 +112,7 @@ namespace UniversityServer.Database
 		
 		public Teachers()
 		{
+			this._Raports = default(EntityRef<Raports>);
 			OnCreated();
 		}
 		
@@ -191,6 +205,40 @@ namespace UniversityServer.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Raports_Teachers", Storage="_Raports", ThisKey="id", OtherKey="teacher_id", IsForeignKey=true)]
+		public Raports Raports
+		{
+			get
+			{
+				return this._Raports.Entity;
+			}
+			set
+			{
+				Raports previousValue = this._Raports.Entity;
+				if (((previousValue != value) 
+							|| (this._Raports.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Raports.Entity = null;
+						previousValue.Teachers.Remove(this);
+					}
+					this._Raports.Entity = value;
+					if ((value != null))
+					{
+						value.Teachers.Add(this);
+						this._id = value.teacher_id;
+					}
+					else
+					{
+						this._id = default(int);
+					}
+					this.SendPropertyChanged("Raports");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -209,6 +257,179 @@ namespace UniversityServer.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class Raports : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id = default(int);
+		
+		private int _teacher_id;
+		
+		private string _name;
+		
+		private double _hours;
+		
+		private System.DateTime _date;
+		
+		private EntitySet<Teachers> _Teachers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onteacher_idChanging(int value);
+    partial void Onteacher_idChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnhoursChanging(double value);
+    partial void OnhoursChanged();
+    partial void OndateChanging(System.DateTime value);
+    partial void OndateChanged();
+    #endregion
+		
+		public Raports()
+		{
+			this._Teachers = new EntitySet<Teachers>(new Action<Teachers>(this.attach_Teachers), new Action<Teachers>(this.detach_Teachers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_teacher_id")]
+		public int teacher_id
+		{
+			get
+			{
+				return this._teacher_id;
+			}
+			set
+			{
+				if ((this._teacher_id != value))
+				{
+					this.Onteacher_idChanging(value);
+					this.SendPropertyChanging();
+					this._teacher_id = value;
+					this.SendPropertyChanged("teacher_id");
+					this.Onteacher_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hours")]
+		public double hours
+		{
+			get
+			{
+				return this._hours;
+			}
+			set
+			{
+				if ((this._hours != value))
+				{
+					this.OnhoursChanging(value);
+					this.SendPropertyChanging();
+					this._hours = value;
+					this.SendPropertyChanged("hours");
+					this.OnhoursChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date")]
+		public System.DateTime date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this.OndateChanging(value);
+					this.SendPropertyChanging();
+					this._date = value;
+					this.SendPropertyChanged("date");
+					this.OndateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Raports_Teachers", Storage="_Teachers", ThisKey="teacher_id", OtherKey="id")]
+		public EntitySet<Teachers> Teachers
+		{
+			get
+			{
+				return this._Teachers;
+			}
+			set
+			{
+				this._Teachers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Teachers(Teachers entity)
+		{
+			this.SendPropertyChanging();
+			entity.Raports = this;
+		}
+		
+		private void detach_Teachers(Teachers entity)
+		{
+			this.SendPropertyChanging();
+			entity.Raports = null;
 		}
 	}
 }

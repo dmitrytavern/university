@@ -146,6 +146,9 @@ namespace UniversityServer.Views
             viewModel.InputTeacherSurname = "";
             viewModel.InputTeacherEmail = "";
             viewModel.InputTeacherPassword = "";
+            TeachersViewList.SelectedIndex = -1;
+            EditButton.IsEnabled = false;
+            DeleteButton.IsEnabled = false;
         }
     }
 }

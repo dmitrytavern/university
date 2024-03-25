@@ -10,9 +10,60 @@
         <vm:RaportsViewModel />
     </UserControl.DataContext>
 
-    <Grid>
-        <TextBlock FontSize="40" FontWeight="Bold" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center" 
-                   Text="{Binding Title}"/>
+    <Grid Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="160" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" Text="Raports" Margin="0,0,0,6" />
+
+        <ListView x:Name="RaportsViewList" Grid.Row="1" ItemsSource="{Binding Raports, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectionChanged="RaportsViewList_SelectionChanged" SelectionMode="Single" Margin="0,0,0,12" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding id}" Width="35px">Id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding teacher_id}" Width="140px">Teacher id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Width="245px">Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding hours}" Width="135px">Hours</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding date}" Width="140px">Date</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock Grid.Row="2" FontSize="22" FontWeight="Bold" Text="Raport form" Margin="0,0,0,6" />
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="0,0,0,4" />
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,0,0,6" />
+                </Style>
+            </Grid.Resources>
+
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="Teacher id:" />
+                <TextBox Text="{Binding InputRaportTeacherId, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBlock Text="Raport name:" />
+                <TextBox Text="{Binding InputRaportName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBlock Text="Raport hours:" />
+                <TextBox Text="{Binding InputRaportHours, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBlock Text="Raport date (yyyy-mm-dd):" />
+                <TextBox Text="{Binding InputRaportDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <Button x:Name="EditButton" Height="47" FontSize="16" FontWeight="Medium" Click="EditButton_Click" IsEnabled="False">Edit raport</Button>
+                <Button x:Name="DeleteButton" Height="47" FontSize="16" FontWeight="Medium" Click="DeleteButton_Click" IsEnabled="False">Delete raport</Button>
+                <Button x:Name="CreateButton" Height="47" FontSize="16" FontWeight="Medium" Click="CreateButton_Click">Create new raport</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
