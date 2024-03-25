@@ -15,5 +15,10 @@ namespace UniversityClient.Views
             App.CurrentUser = null;
             MainWindow.MainFrame.Navigate(new LoginView());
         }
+
+        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MainWindow.MainFrame.Navigate(new CreateRaportView());
+        }
     }
 }

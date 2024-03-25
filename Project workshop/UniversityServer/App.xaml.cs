@@ -78,6 +78,9 @@ namespace UniversityServer
                         case "/login":
                             AppRouter.Login(request, response);
                             return;
+                        case "/create":
+                            AppRouter.CreateRaport(request, response);
+                            return;
                     }
 
                     byte[] buffer = Encoding.UTF8.GetBytes("Hello my client!");

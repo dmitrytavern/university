@@ -5,7 +5,7 @@ using UniversityServer.Database;
 
 namespace UniversityServer
 {
-    readonly struct HttpMessage(string message)
+    public readonly struct HttpMessage(string message)
     {
         public readonly string message { get; } = message;
     }
@@ -23,12 +23,62 @@ namespace UniversityServer
 
                 if (teacher != null)
                 {
-                    SendResponse(response, teacher);
+                    SendResponse(response, new { id = teacher.id, name = teacher.name, email = teacher.email, password = teacher.password, surname = teacher.surname });
 
                     return;
                 }
 
                 throw new Exception("Login or password incorrect.");
+            }
+            catch(Exception ex)
+            {
+                SendErrorResponse(response, ex.Message);
+            }
+        }
+
+        public static void CreateRaport(HttpListenerRequest request, HttpListenerResponse response)
+        {
+            try
+            {
+                string? teacher_id = request.QueryString["teacher_id"];
+                string? name = request.QueryString["name"];
+                string? hours = request.QueryString["hours"];
+                string? date = request.QueryString["date"];
+
+                if (teacher_id != null)
+                {
+                    int parsed_teacher_id = int.Parse(teacher_id);
+
+                    Teachers? teacher = App.db.Teachers.SingleOrDefault(teacher => teacher.id == parsed_teacher_id);
+
+                    if (teacher != null)
+                    {
+                        if (String.IsNullOrWhiteSpace(name) ||
+                            String.IsNullOrWhiteSpace(hours) ||
+                            String.IsNullOrWhiteSpace(date))
+                        {
+                            throw new Exception("Data not corrent and have empty values.");
+                        }
+
+                        Raports newRaport = new Raports
+                        {
+                            teacher_id = parsed_teacher_id,
+                            name = name,
+                            hours = double.Parse(hours),
+                            date = DateTime.Parse(date),
+                        };
+
+                        App.db.Raports.InsertOnSubmit(newRaport);
+
+                        App.db.SubmitChanges();
+
+                        SendResponse(response, new HttpMessage("Raport success created!"));
+
+                        return;
+                    }
+                }
+
+                throw new Exception("Teacher not found.");
             }
             catch(Exception ex)
             {

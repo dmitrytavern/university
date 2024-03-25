@@ -1,12 +1,13 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
+using System.Windows;
 using UniversityServer.Database;
 
 namespace UniversityClient.Api
 {
     class LoginApi
     {
-        public static async Task<Teachers> Handle(string email, string password)
+        public static async Task<TeacherData> Handle(string email, string password)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -16,7 +17,7 @@ namespace UniversityClient.Api
 
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                Teachers? teacher = JsonSerializer.Deserialize<Teachers>(responseBody);
+                TeacherData? teacher = JsonSerializer.Deserialize<TeacherData>(responseBody);
 
                 if (teacher != null)
                 {

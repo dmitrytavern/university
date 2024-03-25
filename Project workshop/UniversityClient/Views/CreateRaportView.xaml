@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="UniversityClient.Views.CreateRaportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="200,90">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Text="Create your raport" />
+        <TextBlock Grid.Row="1" Text="Raport name:" Margin="0,0,0,4" />
+        <TextBox x:Name="RaportNameInput" Grid.Row="2" Margin="0,0,0,6" />
+        <TextBlock Grid.Row="3" Text="Worked hours:" Margin="0,0,0,4" />
+        <TextBox x:Name="RaportHoursInput" Grid.Row="4" Margin="0,0,0,6" />
+        <TextBlock Grid.Row="5" Text="Date:" Margin="0,0,0,4" />
+        <TextBox x:Name="RaportDateInput" Grid.Row="6" Margin="0,0,0,10" />
+        <TextBlock x:Name="StatusTextBlock" Grid.Row="7" Text="" Visibility="Collapsed" Margin="0,0,0,4" />
+        <Button Grid.Row="8" Margin="0,0,0,6" Click="CreateButton_Click">Create report</Button>
+        <Button Grid.Row="9" Click="BackButton_Click">Back</Button>
+    </Grid>
+</UserControl>
