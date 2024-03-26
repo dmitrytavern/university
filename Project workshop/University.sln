@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityServer", "UniversityServer\UniversityServer.csproj", "{01654736-AD14-4963-9A65-670A25F00DA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityServer", "UniversityServer\UniversityServer.csproj", "{01654736-AD14-4963-9A65-670A25F00DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityClient", "UniversityClient\UniversityClient.csproj", "{0C724CEB-12D1-4EDE-AE11-62EB2DFE8126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityClient", "UniversityClient\UniversityClient.csproj", "{0C724CEB-12D1-4EDE-AE11-62EB2DFE8126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUniversity", "TestUniversity\TestUniversity.csproj", "{AED25717-129F-4F4D-85A0-E634A3887A99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0C724CEB-12D1-4EDE-AE11-62EB2DFE8126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C724CEB-12D1-4EDE-AE11-62EB2DFE8126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C724CEB-12D1-4EDE-AE11-62EB2DFE8126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED25717-129F-4F4D-85A0-E634A3887A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED25717-129F-4F4D-85A0-E634A3887A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED25717-129F-4F4D-85A0-E634A3887A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED25717-129F-4F4D-85A0-E634A3887A99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
