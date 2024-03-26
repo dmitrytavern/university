@@ -1,12 +1,19 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
-using System.Windows;
-using UniversityServer.Database;
 
 namespace UniversityClient.Api
 {
+    /// <summary>
+    /// Provides functionality for handling login API requests.
+    /// </summary>
     class LoginApi
     {
+        /// <summary>
+        /// Handles the login request asynchronously.
+        /// </summary>
+        /// <param name="email">The email of the user.</param>
+        /// <param name="password">The password of the user.</param>
+        /// <returns>A Task representing the asynchronous operation with the TeacherData object.</returns>
         public static async Task<TeacherData> Handle(string email, string password)
         {
             using (HttpClient client = new HttpClient())

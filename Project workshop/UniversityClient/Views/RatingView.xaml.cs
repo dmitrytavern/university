@@ -6,20 +6,31 @@ using UniversityServer.ViewModels;
 
 namespace UniversityClient.Views
 {
+    /// <summary>
+    /// Interaction logic for RatingView.xaml
+    /// </summary>
     public partial class RatingView : UserControl
     {
         private readonly ClientRatingViewModel viewModel = new();
 
+        /// <summary>
+        /// Initializes a new instance of the RatingView class.
+        /// </summary>
         public RatingView()
         {
             InitializeComponent();
             DataContext = viewModel;
             viewModel.FetchRating();
-            WpfPlot1.Plot.XLabel("Mouth");
+            WpfPlot1.Plot.XLabel("Month");
             WpfPlot1.Plot.YLabel("Hours");
-            WpfPlot1.Plot.Title("Hours per Mouth");
+            WpfPlot1.Plot.Title("Hours per Month");
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event of the RatingViewList control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The SelectionChangedEventArgs instance containing the event data.</param>
         private void RatingViewList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -30,9 +41,9 @@ namespace UniversityClient.Views
 
                 double[] dataY = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-                foreach(RatingRaportData raport in ((RatingTeacherData)RatingViewList.SelectedItem).raports)
+                foreach (RatingRaportData report in ((RatingTeacherData)RatingViewList.SelectedItem).raports)
                 {
-                    dataY[raport.date.Month - 1] += raport.hours;
+                    dataY[report.date.Month - 1] += report.hours;
                 }
 
                 WpfPlot1.Plot.Clear();
@@ -49,6 +60,10 @@ namespace UniversityClient.Views
             }
         }
 
+        /// <summary>
+        /// Gets an array of DateTime representing each month of the year.
+        /// </summary>
+        /// <returns>An array of DateTime representing each month of the year.</returns>
         private DateTime[] GetMonthsOfYear()
         {
             DateTime[] months = new DateTime[12];
@@ -62,6 +77,11 @@ namespace UniversityClient.Views
             return months;
         }
 
+        /// <summary>
+        /// Handles the Click event of the PrintButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The RoutedEventArgs instance containing the event data.</param>
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -76,7 +96,7 @@ namespace UniversityClient.Views
 
                     WpfPlot1.Plot.SavePng(filePath, 400, 300);
 
-                    MessageBox.Show("График успешно сохранен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Graph successfully saved.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
@@ -85,6 +105,11 @@ namespace UniversityClient.Views
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the BackButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The RoutedEventArgs instance containing the event data.</param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.MainFrame.Navigate(new ProfileView());

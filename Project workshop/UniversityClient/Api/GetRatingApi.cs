@@ -4,8 +4,15 @@ using UniversityServer.ViewModels;
 
 namespace UniversityClient.Api
 {
+    /// <summary>
+    /// Provides functionality for fetching rating data from the API.
+    /// </summary>
     class GetRatingApi
     {
+        /// <summary>
+        /// Handles the request to fetch rating data asynchronously.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation with the list of RatingTeacherData objects.</returns>
         public static async Task<List<RatingTeacherData>> Handle()
         {
             using (HttpClient client = new HttpClient())
