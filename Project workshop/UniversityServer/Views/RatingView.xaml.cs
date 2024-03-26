@@ -31,7 +31,7 @@ namespace UniversityServer.Views
 
                 double[] dataY = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-                foreach(Raports raport in ((RatingTeacherData)RatingViewList.SelectedItem).raports)
+                foreach(RatingRaportData raport in ((RatingTeacherData)RatingViewList.SelectedItem).raports)
                 {
                     dataY[raport.date.Month - 1] += raport.hours;
                 }

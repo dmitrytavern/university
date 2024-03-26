@@ -3,13 +3,18 @@ using UniversityServer.Database;
 
 namespace UniversityServer.ViewModels
 {
-    public class RatingTeacherData(int number, string name, double hours, Teachers teacher, List<Raports> raports)
+    public class RatingRaportData(double hours, DateTime date)
+    {
+        public double hours { get; } = hours;
+        public DateTime date { get; } = date;
+    }
+
+    public class RatingTeacherData(int number, string name, double hours, List<RatingRaportData> raports)
     {
         public int number { get; set; } = number;
         public string name { get; } = name;
         public double hours { get; } = hours;
-        public Teachers teacher { get; } = teacher;
-        public List<Raports> raports { get; } = raports;
+        public List<RatingRaportData> raports { get; } = raports;
     }
 
     public class RatingViewModel : ViewModelBase
@@ -32,18 +37,20 @@ namespace UniversityServer.ViewModels
 
             foreach (Teachers teacher in teachers)
             {
+                List<RatingRaportData> raportsData = [];
                 List<Raports> raports = App.db.Raports.Where(p => p.teacher_id == teacher.id && p.date.Year == DateTime.Today.Year).ToList();
              
                 double hours = 0;
 
                 foreach(Raports raport in raports)
                 {
+                    raportsData.Add(new RatingRaportData(raport.hours, raport.date));
                     hours += raport.hours;
                 }
 
                 hours = Math.Round(hours, 2);
 
-                data.Add(new RatingTeacherData(0, teacher.name + " " + teacher.surname, hours, teacher, raports));
+                data.Add(new RatingTeacherData(0, teacher.name + " " + teacher.surname, hours, raportsData));
             }
 
             data.Sort((x, y) => y.hours.CompareTo(x.hours));

@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using UniversityServer.Database;
+using UniversityServer.ViewModels;
 
 namespace UniversityServer
 {
@@ -81,6 +82,48 @@ namespace UniversityServer
                 throw new Exception("Teacher not found.");
             }
             catch(Exception ex)
+            {
+                SendErrorResponse(response, ex.Message);
+            }
+        }
+
+        public static void GetRating(HttpListenerRequest request, HttpListenerResponse response)
+        {
+            try
+            {
+                List<RatingTeacherData> data = [];
+                List<Teachers> teachers = App.db.Teachers.ToList();
+
+                foreach (Teachers teacher in teachers)
+                {
+                    List<RatingRaportData> raportsData = [];
+                    List<Raports> raports = App.db.Raports.Where(p => p.teacher_id == teacher.id && p.date.Year == DateTime.Today.Year).ToList();
+
+                    double hours = 0;
+
+                    foreach (Raports raport in raports)
+                    {
+                        raportsData.Add(new RatingRaportData(raport.hours, raport.date));
+                        hours += raport.hours;
+                    }
+
+                    hours = Math.Round(hours, 2);
+
+                    data.Add(new RatingTeacherData(0, teacher.name + " " + teacher.surname, hours, raportsData));
+                }
+
+                data.Sort((x, y) => y.hours.CompareTo(x.hours));
+
+                int i = 1;
+                foreach (RatingTeacherData teacherData in data)
+                {
+                    teacherData.number = i;
+                    i++;
+                }
+
+                SendResponse(response, data);
+            }
+            catch (Exception ex)
             {
                 SendErrorResponse(response, ex.Message);
             }
