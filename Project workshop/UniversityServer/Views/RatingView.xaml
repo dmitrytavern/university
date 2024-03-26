@@ -4,15 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:UniversityServer.ViewModels"
+             xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:RatingViewModel />
     </UserControl.DataContext>
 
-    <Grid>
-        <TextBlock FontSize="40" FontWeight="Bold" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center" 
-                   Text="{Binding Title}"/>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" Text="Rating" Margin="0,0,0,6"/>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,0,6,0">
+                <ListView x:Name="RatingViewList" Height="280" Grid.Row="1" ItemsSource="{Binding TeachersData, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectionChanged="RatingViewList_SelectionChanged" SelectionMode="Single" Margin="0,0,0,12" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding number}" Width="28px">#</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding name}" Width="180px">Name</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding hours}" Width="120px">Hours</GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="6,0,0,0">
+                <ScottPlot:WpfPlot x:Name="WpfPlot1" Visibility="Collapsed" Height="280" />
+            </StackPanel>
+        </Grid>
+
+        <Button Grid.Row="2" x:Name="PrintButton" Click="PrintButton_Click" IsEnabled="False">Print</Button>
     </Grid>
 </UserControl>
