@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using UniversityServer.Views;
 
 namespace UniversityClient.Views
 {
@@ -19,6 +20,11 @@ namespace UniversityClient.Views
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
             MainWindow.MainFrame.Navigate(new CreateRaportView());
+        }
+
+        private void Button_Click_2(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MainWindow.MainFrame.Navigate(new RatingView());
         }
     }
 }

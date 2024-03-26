@@ -30,5 +30,8 @@
     <Page Update="Views\ProfileView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\RatingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

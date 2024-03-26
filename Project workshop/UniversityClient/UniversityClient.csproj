@@ -12,4 +12,10 @@
     <ProjectReference Include="..\UniversityServer\UniversityServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Views\RatingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

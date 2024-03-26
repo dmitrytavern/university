@@ -16,7 +16,7 @@
 
         <TextBlock Grid.Row="0" x:Name="WelcomeTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
         <Button Grid.Row="1" Margin="0,0,0,6" Click="Button_Click_1">Create report</Button>
-        <Button Grid.Row="2" Margin="0,0,0,6" IsEnabled="False">View rating</Button>
+        <Button Grid.Row="2" Margin="0,0,0,6" Click="Button_Click_2">View rating</Button>
         <Button Grid.Row="3" Click="Button_Click">Logout</Button>
     </Grid>
 </UserControl>
