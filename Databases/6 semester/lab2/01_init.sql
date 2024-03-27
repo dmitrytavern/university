@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS lab2;
-GO
-
 CREATE DATABASE lab2;
 GO
 
@@ -82,47 +79,48 @@ CREATE TABLE StudentsReports (
     report_id INT FOREIGN KEY REFERENCES Reports(id),
     student_id INT FOREIGN KEY REFERENCES Students(id),
     national_grade INT, -- 0-5
-    ects_grade INT, -- 0-100
+	total_grade INT, -- 1-100
+    ects_grade VARCHAR(2), -- A, B, C, D, E, FX, F
 );
 
-INSERT INTO StudentsReports (report_id, student_id, national_grade, ects_grade)
+INSERT INTO StudentsReports (report_id, student_id, national_grade, total_grade, ects_grade)
 VALUES
-    (1, 1, 2, 45),
-    (1, 2, 5, 90),
-    (1, 3, 5, 95),
-    (1, 4, 3, 75),
+    (1, 1, 2, 45, 'Fx'),
+    (1, 2, 5, 90, 'A'),
+    (1, 3, 5, 95, 'A'),
+    (1, 4, 3, 75, 'C'),
 
-    (2, 2, 5, 95),
-    (2, 3, 5, 90),
-    (2, 4, 3, 65),
-    (2, 5, 4, 85),
+    (2, 2, 5, 95, 'A'),
+    (2, 3, 5, 90, 'A'),
+    (2, 4, 3, 65, 'E'),
+    (2, 5, 4, 85, 'B'),
 
-    (3, 6, 3, 70),
-    (3, 7, 4, 85),
-    (3, 8, 5, 95),
+    (3, 6, 3, 70, 'D'),
+    (3, 7, 4, 85, 'B'),
+    (3, 8, 5, 95, 'A'),
 
-    (4, 9, 5, 95),
-    (4, 3, 4, 80),
-    (4, 4, 3, 70),
-    (4, 5, 4, 90),
+    (4, 9, 5, 95, 'A'),
+    (4, 3, 4, 80, 'B'),
+    (4, 4, 3, 70, 'D'),
+    (4, 5, 4, 90, 'A'),
 
     -- Next
 
-    (5, 2, 2, 45),
-    (5, 3, 5, 90),
-    (5, 4, 5, 95),
-    (5, 5, 3, 75),
+    (5, 2, 2, 45, 'Fx'),
+    (5, 3, 5, 90, 'A'),
+    (5, 4, 5, 95, 'A'),
+    (5, 5, 3, 75, 'C'),
 
-    (6, 3, 5, 95),
-    (6, 4, 5, 90),
-    (6, 5, 3, 65),
-    (6, 6, 4, 85),
+    (6, 3, 5, 95, 'A'),
+    (6, 4, 5, 90, 'A'),
+    (6, 5, 3, 65, 'E'),
+    (6, 6, 4, 85, 'B'),
 
-    (7, 7, 3, 70),
-    (7, 8, 4, 85),
-    (7, 9, 5, 95),
+    (7, 7, 3, 70, 'D'),
+    (7, 8, 4, 85, 'B'),
+    (7, 9, 5, 95, 'A'),
 
-    (8, 10, 5, 95),
-    (8, 4, 4, 80),
-    (8, 5, 3, 70),
-    (8, 6, 4, 90);
+    (8, 10, 5, 95, 'A'),
+    (8, 4, 4, 80, 'B'),
+    (8, 5, 3, 70, 'D'),
+    (8, 6, 4, 90, 'A');

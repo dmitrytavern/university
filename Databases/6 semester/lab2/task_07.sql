@@ -20,7 +20,7 @@ GROUP BY
 	Teachers.name,
 	Disciplines.id,
 	Disciplines.name
-HAVING AVG(StudentsReports.ects_grade) >= 60;
+HAVING AVG(StudentsReports.total_grade) >= 60;
 
 -- выбрать всех учителей
 -- присоеденить к ним их ведомости
@@ -42,4 +42,4 @@ GROUP BY
 	Teachers.name,
 	Disciplines.id,
 	Disciplines.name
-HAVING AVG(StudentsReports.ects_grade) < 60;
+HAVING AVG(StudentsReports.total_grade) < 60;
