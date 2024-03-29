@@ -1,0 +1,12 @@
+USE lab5
+GO
+
+BEGIN TRANSACTION;
+
+EXEC DeleteTrainActs_CarriageTypes 4
+GO
+
+EXEC DeleteTrainAct 4
+GO
+
+COMMIT TRANSACTION;
