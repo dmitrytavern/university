@@ -13,9 +13,21 @@ namespace UniversityServer.Views
         {
             InitializeComponent();
             DataContext = viewModel;
-            FetchRaportsList();
-        }
 
+            RaportsViewList.IsEnabled = App.db != null;
+            RaportTeacherIdInput.IsEnabled = App.db != null;
+            RaportNameInput.IsEnabled = App.db != null;
+            RaportHoursInput.IsEnabled = App.db != null;
+            RaportDateInput.IsEnabled = App.db != null;
+            EditButton.IsEnabled = App.db != null;
+            DeleteButton.IsEnabled = App.db != null;
+            CreateButton.IsEnabled = App.db != null;
+
+            if (App.db != null)
+            {
+                FetchRaportsList();
+            }
+        }
 
         private void RaportsViewList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -44,6 +56,10 @@ namespace UniversityServer.Views
             try
             {
                 if (!CheckFormValidation()) return;
+
+                int teacher_id = int.Parse(viewModel.InputRaportTeacherId);
+
+                App.db.Teachers.Single(p => p.id == teacher_id);
 
                 App.db.Raports.InsertOnSubmit(CreateRaportFromForm());
                 App.db.SubmitChanges();
@@ -87,9 +103,14 @@ namespace UniversityServer.Views
             {
                 if (!CheckFormValidation()) return;
 
+
                 Raports raport = GetSelectedRaport();
 
                 Raports dbRaport = App.db.Raports.Single(p => p.id == raport.id);
+
+                int teacher_id = int.Parse(viewModel.InputRaportTeacherId);
+
+                App.db.Teachers.Single(p => p.id == teacher_id);
 
                 dbRaport.teacher_id = int.Parse(viewModel.InputRaportTeacherId);
                 dbRaport.name = viewModel.InputRaportName;

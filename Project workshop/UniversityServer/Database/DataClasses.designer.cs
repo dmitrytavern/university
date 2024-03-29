@@ -94,7 +94,7 @@ namespace UniversityServer.Database
 		
 		private string _password;
 		
-		private EntityRef<Raports> _Raports;
+		private EntitySet<Raports> _Raports;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -112,7 +112,7 @@ namespace UniversityServer.Database
 		
 		public Teachers()
 		{
-			this._Raports = default(EntityRef<Raports>);
+			this._Raports = new EntitySet<Raports>(new Action<Raports>(this.attach_Raports), new Action<Raports>(this.detach_Raports));
 			OnCreated();
 		}
 		
@@ -205,37 +205,16 @@ namespace UniversityServer.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Raports_Teachers", Storage="_Raports", ThisKey="id", OtherKey="teacher_id", IsForeignKey=true)]
-		public Raports Raports
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teachers_Raports", Storage="_Raports", ThisKey="id", OtherKey="teacher_id")]
+		public EntitySet<Raports> Raports
 		{
 			get
 			{
-				return this._Raports.Entity;
+				return this._Raports;
 			}
 			set
 			{
-				Raports previousValue = this._Raports.Entity;
-				if (((previousValue != value) 
-							|| (this._Raports.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Raports.Entity = null;
-						previousValue.Teachers.Remove(this);
-					}
-					this._Raports.Entity = value;
-					if ((value != null))
-					{
-						value.Teachers.Add(this);
-						this._id = value.teacher_id;
-					}
-					else
-					{
-						this._id = default(int);
-					}
-					this.SendPropertyChanged("Raports");
-				}
+				this._Raports.Assign(value);
 			}
 		}
 		
@@ -258,6 +237,18 @@ namespace UniversityServer.Database
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Raports(Raports entity)
+		{
+			this.SendPropertyChanging();
+			entity.Teachers = this;
+		}
+		
+		private void detach_Raports(Raports entity)
+		{
+			this.SendPropertyChanging();
+			entity.Teachers = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -276,7 +267,7 @@ namespace UniversityServer.Database
 		
 		private System.DateTime _date;
 		
-		private EntitySet<Teachers> _Teachers;
+		private EntityRef<Teachers> _Teachers;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -294,7 +285,7 @@ namespace UniversityServer.Database
 		
 		public Raports()
 		{
-			this._Teachers = new EntitySet<Teachers>(new Action<Teachers>(this.attach_Teachers), new Action<Teachers>(this.detach_Teachers));
+			this._Teachers = default(EntityRef<Teachers>);
 			OnCreated();
 		}
 		
@@ -318,6 +309,10 @@ namespace UniversityServer.Database
 			{
 				if ((this._teacher_id != value))
 				{
+					if (this._Teachers.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onteacher_idChanging(value);
 					this.SendPropertyChanging();
 					this._teacher_id = value;
@@ -387,16 +382,37 @@ namespace UniversityServer.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Raports_Teachers", Storage="_Teachers", ThisKey="teacher_id", OtherKey="id")]
-		public EntitySet<Teachers> Teachers
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teachers_Raports", Storage="_Teachers", ThisKey="teacher_id", OtherKey="id", IsForeignKey=true)]
+		public Teachers Teachers
 		{
 			get
 			{
-				return this._Teachers;
+				return this._Teachers.Entity;
 			}
 			set
 			{
-				this._Teachers.Assign(value);
+				Teachers previousValue = this._Teachers.Entity;
+				if (((previousValue != value) 
+							|| (this._Teachers.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Teachers.Entity = null;
+						previousValue.Raports.Remove(this);
+					}
+					this._Teachers.Entity = value;
+					if ((value != null))
+					{
+						value.Raports.Add(this);
+						this._teacher_id = value.id;
+					}
+					else
+					{
+						this._teacher_id = default(int);
+					}
+					this.SendPropertyChanged("Teachers");
+				}
 			}
 		}
 		
@@ -418,18 +434,6 @@ namespace UniversityServer.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Teachers(Teachers entity)
-		{
-			this.SendPropertyChanging();
-			entity.Raports = this;
-		}
-		
-		private void detach_Teachers(Teachers entity)
-		{
-			this.SendPropertyChanging();
-			entity.Raports = null;
 		}
 	}
 }

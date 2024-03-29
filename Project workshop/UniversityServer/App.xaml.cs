@@ -8,12 +8,24 @@ namespace UniversityServer
 
     public partial class App : Application
     {
-        public static readonly string DBName = "University";
-        public static readonly string DBSource = "DESKTOP-4EQTI1O";
-
         public static readonly Thread serverThread;
         public static readonly HttpListener serverListener;
-        public static readonly DataClassesDataContext db;
+
+        public static DataClassesDataContext? db;
+
+        public static string _DBName = "University";
+        public static string DBName
+        {
+            get { return _DBName; }
+            set { _DBName = value; }
+        }
+
+        public static string _DBSource = "DESKTOP-4EQTI1O";
+        public static string DBSource
+        {
+            get { return _DBSource; }
+            set { _DBSource = value; }
+        }
 
         private static string _ServerPort = "8080";
         public static string ServerPort {
@@ -37,11 +49,14 @@ namespace UniversityServer
 
         static App()
         {
-            db = new DataClassesDataContext(@"Data Source=" + DBSource + ";Initial Catalog=" + DBName + ";Integrated Security=True");
             serverThread = new Thread(ServerThreadListener);
             serverListener = new HttpListener();
-
             serverThread.Start();
+        }
+
+        public static void ConnectDatabase()
+        {
+            db = new DataClassesDataContext(@"Data Source=" + DBSource + ";Initial Catalog=" + DBName + ";Integrated Security=True");
 
             if (db.DatabaseExists() == false)
             {

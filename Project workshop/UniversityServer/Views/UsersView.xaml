@@ -50,13 +50,13 @@
 
             <StackPanel Margin="0,0,10,0">
                 <TextBlock Text="Name:" />
-                <TextBox Text="{Binding InputTeacherName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBox x:Name="TeacherNameInput" Text="{Binding InputTeacherName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                 <TextBlock Text="Surname:" />
-                <TextBox Text="{Binding InputTeacherSurname, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBox x:Name="TeacherSurnameInput" Text="{Binding InputTeacherSurname, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                 <TextBlock Text="Email:" />
-                <TextBox Text="{Binding InputTeacherEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBox x:Name="TeacherEmailInput" Text="{Binding InputTeacherEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                 <TextBlock Text="Password:" />
-                <TextBox Text="{Binding InputTeacherPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBox x:Name="TeacherPasswordInput" Text="{Binding InputTeacherPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="10,0,0,0">

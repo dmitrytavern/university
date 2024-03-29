@@ -13,7 +13,20 @@ namespace UniversityServer.Views
         {
             InitializeComponent();
             DataContext = viewModel;
-            FetchTeachersList();
+
+            TeachersViewList.IsEnabled = App.db != null;
+            TeacherNameInput.IsEnabled = App.db != null;
+            TeacherSurnameInput.IsEnabled = App.db != null;
+            TeacherEmailInput.IsEnabled = App.db != null;
+            TeacherPasswordInput.IsEnabled = App.db != null;
+            EditButton.IsEnabled = App.db != null;
+            DeleteButton.IsEnabled = App.db != null;
+            CreateButton.IsEnabled = App.db != null;
+
+            if (App.db != null)
+            {
+                FetchTeachersList();
+            }
         }
 
         private void TeachersViewList_SelectionChanged(object sender, SelectionChangedEventArgs e)

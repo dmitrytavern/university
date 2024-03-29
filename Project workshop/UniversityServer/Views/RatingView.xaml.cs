@@ -15,7 +15,14 @@ namespace UniversityServer.Views
         {
             InitializeComponent();
             DataContext = viewModel;
-            viewModel.FetchRating();
+
+            RatingViewList.IsEnabled = App.db != null;
+
+            if (App.db != null)
+            {
+                viewModel.FetchRating();
+            }
+
             WpfPlot1.Plot.XLabel("Mouth");
             WpfPlot1.Plot.YLabel("Hours");
             WpfPlot1.Plot.Title("Hours per Mouth");

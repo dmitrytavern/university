@@ -14,11 +14,11 @@
         <elementListCompartment Id="4a880244-8b99-4d13-b97a-14fd23de5ac9" absoluteBounds="4.39, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.375 : 2.38544840494792); (3.625 : 2.38544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DataClassesDataContext/Raports/Raports_Teachers" />
+    <associationConnector edgePoints="[(3.625 : 2.38544840494792); (4.375 : 2.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Teachers/Teachers_Raports" />
       <nodes>
-        <classShapeMoniker Id="27c8d5b4-1850-4007-8a78-7f71e06d3e7b" />
         <classShapeMoniker Id="fab2dff3-b01b-4df6-9c47-8ac71453d19c" />
+        <classShapeMoniker Id="27c8d5b4-1850-4007-8a78-7f71e06d3e7b" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

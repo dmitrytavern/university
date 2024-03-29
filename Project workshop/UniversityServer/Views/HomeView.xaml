@@ -14,6 +14,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <Style TargetType="{x:Type TextBlock}">
@@ -31,7 +34,10 @@
         <TextBlock Grid.Row="1" x:Name="ServerStatusText" Text="Server status: Offline"/>
         <TextBlock Grid.Row="2" Text="Server port:" Margin="0,0,0,2" />
         <TextBox Grid.Row="3" x:Name="ServerPortInput" Text="" TextChanged="ServerPortInput_TextChanged" />
-        <Button Grid.Row="4" x:Name="StartButton" Click="StartButton_Click">Start server</Button>
-        <Button Grid.Row="5" x:Name="StopButton" Click="StopButton_Click">Stop server</Button>
+        <TextBox Grid.Row="4" x:Name="ServerDBNameInput" Text="" TextChanged="ServerDBNameInput_TextChanged" />
+        <TextBox Grid.Row="5" x:Name="ServerDBSourceInput" Text="" TextChanged="ServerDBSourceInput_TextChanged" />
+        <Button Grid.Row="6" x:Name="ConnectButton" Click="ConnectButton_Click_1">Connect</Button>
+        <Button Grid.Row="7" x:Name="StartButton" Click="StartButton_Click">Start server</Button>
+        <Button Grid.Row="8" x:Name="StopButton" Click="StopButton_Click">Stop server</Button>
     </Grid>
 </UserControl>
