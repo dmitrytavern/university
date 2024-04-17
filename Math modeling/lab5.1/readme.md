@@ -1,6 +1,6 @@
 # Lab 5
 
-Task: create polynomial Newton.
+Task: create first polynomial Newton formule.
 
 <img src=".github/image01.png">
 
