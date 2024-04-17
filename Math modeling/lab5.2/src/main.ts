@@ -24,17 +24,17 @@ export class NewtonPolynomial {
   }
 
   public evaluate(value: number) {
-    const height = polynomial.x[1] - polynomial.x[0];
-    let sum = polynomial.y[0][polynomial.n - 1];
+    const height = this.x[1] - this.x[0];
+    let sum = this.y[0][this.n - 1];
     let k = 1;
 
-    for (let i = 1; i < polynomial.n; i++) {
+    for (let i = 1; i < this.n; i++) {
       k = k * i;
 
-      let a = polynomial.y[i][polynomial.n - i - 1] / (k * Math.pow(height, i));
+      let a = this.y[i][this.n - i - 1] / (k * Math.pow(height, i));
 
       for (let j = 1; j <= i; j++) {
-        a *= value - polynomial.x[polynomial.n - j];
+        a *= value - this.x[this.n - j];
       }
 
       sum += a;
