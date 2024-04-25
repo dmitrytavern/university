@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
+using System.Windows;
 
 namespace UniversityClient.Api
 {
@@ -19,8 +20,14 @@ namespace UniversityClient.Api
         {
             using (HttpClient client = new HttpClient())
             {
+                MessageBox.Show(App.ApiUrl
+                    + "/create?teacher_id=" + App.CurrentUser?.id
+                    + "&name=" + name
+                    + "&hours=" + hours
+                    + "&date=" + date);
+
                 HttpResponseMessage response = await client.GetAsync(App.ApiUrl
-                    + "/create?teacher_id=" + App.CurrentUser?.Id
+                    + "/create?teacher_id=" + App.CurrentUser?.id
                     + "&name=" + name
                     + "&hours=" + hours
                     + "&date=" + date);

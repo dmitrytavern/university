@@ -37,6 +37,8 @@ namespace UniversityClient.Views
             }
             catch (HttpRequestException ex)
             {
+                MessageBox.Show(ex.Message);
+
                 StatusTextBlock.Text = "Current status: Error\nResponse: " + ex.Message;
                 StatusTextBlock.Visibility = Visibility.Visible;
                 ConnectButton.IsEnabled = true;

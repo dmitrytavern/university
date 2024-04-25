@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Windows;
+using System.Net.Http;
 using System.Text.Json;
 
 namespace UniversityClient.Api
@@ -18,6 +19,7 @@ namespace UniversityClient.Api
         {
             using (HttpClient client = new HttpClient())
             {
+                MessageBox.Show(App.ApiUrl + "/login?email=" + email + "&password=" + password);
                 HttpResponseMessage response = await client.GetAsync(App.ApiUrl + "/login?email=" + email + "&password=" + password);
 
                 response.EnsureSuccessStatusCode();

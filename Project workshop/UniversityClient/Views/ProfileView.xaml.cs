@@ -13,7 +13,7 @@ namespace UniversityClient.Views
         public ProfileView()
         {
             InitializeComponent();
-            WelcomeTextBlock.Text = "Welcome, " + App.CurrentUser?.Name + " " + App.CurrentUser?.Surname;
+            WelcomeTextBlock.Text = "Welcome, " + App.CurrentUser?.name + " " + App.CurrentUser?.surname;
         }
 
         /// <summary>
