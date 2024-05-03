@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="" Member="events">
+    <Type Name="events">
+      <Column Member="id" AutoSync="Never" Type="System.Int32" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Member="name" Type="System.String" CanBeNull="false" />
+      <Column Member="description" Type="System.String" CanBeNull="true" />
+      <Column Member="price" Type="System.Decimal" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="clients">
+    <Type Name="clients">
+      <Column Member="id" AutoSync="Never" Type="System.Int32" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Member="name" Type="System.String" CanBeNull="false" />
+      <Column Member="surname" Type="System.String" CanBeNull="false" />
+      <Column Member="email" Type="System.String" CanBeNull="false" />
+      <Column Member="phone" Type="System.String" CanBeNull="false" />
+      <Column Member="sex" Type="System.String" CanBeNull="false" />
+      <Column Member="birthday" Type="System.DateTime" CanBeNull="false" />
+      <Column Member="password" Type="System.String" CanBeNull="false" />
+      <Column Member="passport_expiry" Type="System.DateTime" CanBeNull="false" />
+      <Column Member="passport_record_no" Type="System.String" CanBeNull="false" />
+      <Column Member="passport_document_no" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="insurances">
+    <Type Name="insurances">
+      <Column Member="id" AutoSync="Never" Type="System.Int32" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Member="event_id" Type="System.Int32" CanBeNull="true" />
+      <Column Member="client_id" Type="System.Int32" CanBeNull="false" />
+      <Column Member="sum" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="price" Type="System.Decimal" CanBeNull="false" />
+      <Column Member="payment" Type="System.Decimal" CanBeNull="true" />
+      <Column Member="start_date" Type="System.DateTime" CanBeNull="false" />
+      <Column Member="end_date" Type="System.DateTime" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="admins">
+    <Type Name="admins">
+      <Column Member="id" AutoSync="Never" Type="System.Int32" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Member="name" Type="System.String" CanBeNull="false" />
+      <Column Member="login" Type="System.String" CanBeNull="false" />
+      <Column Member="password" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

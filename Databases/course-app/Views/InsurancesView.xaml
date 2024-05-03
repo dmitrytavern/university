@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="InsuranceCompany.Views.InsurancesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ListView ItemsSource="{Binding Insurances, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding id}" Width="35px">Id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding event_id}" Width="100px">Event id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding client_id}" Width="120px">Client id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding sum}" Width="100px">Sum</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding price}" Width="100px">Price</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding payment}" Width="100px">Payment</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding start_date}" Width="100px">Start Date</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding end_date}" Width="100px">End Date</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

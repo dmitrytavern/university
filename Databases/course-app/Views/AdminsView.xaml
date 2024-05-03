@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="InsuranceCompany.Views.AdminsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ListView ItemsSource="{Binding Admins, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding id}" Width="35px">Id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Width="100px">Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding login}" Width="120px">Login</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding password}" Width="500px">Password</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
