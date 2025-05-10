@@ -2,3 +2,5 @@
 .vscode
 .idea
 result
+venv
+__pycache__
