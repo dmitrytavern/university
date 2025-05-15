@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="aic.Views.TeachersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aic.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="660">
+    <Grid Background="White" Margin="10,0,10,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Викладачі закладу" Grid.Row="0" Margin="0,0,0,10" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" />
+
+        <DataGrid Grid.Row="1" x:Name="TeachersGrid" AutoGenerateColumns="False"
+              SelectionMode="Single" IsReadOnly="True"
+              SelectionChanged="TeachersGrid_SelectionChanged"
+              CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Ім’я" Binding="{Binding FirstName}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Прізвище" Binding="{Binding LastName}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="По батькові" Binding="{Binding MiddleName}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="0,10,0,0">
+            <TextBlock Text="Створити викладача" FontWeight="Medium" FontSize="14" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBlock Text="Ім’я:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="NewTeacherFirstNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Прізвище:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="NewTeacherLastNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <TextBlock Text="По батькові:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="NewTeacherMiddleNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+                <Button x:Name="AddTeacherButton" Content="Додати" Click="AddTeacherButton_Click" Padding="10,2"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,10,0,0" x:Name="EditDeleteSection" IsEnabled="False">
+            <TextBlock Text="Обраний викладач" FontWeight="Medium" FontSize="14" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Text="Ім’я:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="SelectedTeacherFirstNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Text="Прізвище:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="SelectedTeacherLastNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Text="По батькові:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="SelectedTeacherMiddleNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+                <Button x:Name="UpdateTeacherButton" Content="Оновити" Click="UpdateTeacherButton_Click" Padding="10,2" Margin="0,0,5,0"/>
+                <Button x:Name="DeleteTeacherButton" Content="Видалити" Click="DeleteTeacherButton_Click" Padding="10,2" Background="LightCoral"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

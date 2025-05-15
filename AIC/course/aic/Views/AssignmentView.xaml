@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="aic.Views.AssignmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aic.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="660">
+    <Grid Background="White" Margin="10,0,10,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Призначення предметів" Grid.Row="0" Margin="0,0,0,10" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" />
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1">
+            <TextBlock Text="Спеціальність: " VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="SpecialtyComboBox" Width="250" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="SpecialtyComboBox_SelectionChanged"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="AssignmentsGrid" AutoGenerateColumns="False"
+              IsReadOnly="True" SelectionMode="Single" SelectionChanged="AssignmentsGrid_SelectionChanged"
+              CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Семестр" Binding="{Binding Semester}" Width="Auto"/>
+                <DataGridTextColumn Header="Предмет" Binding="{Binding SubjectName}" Width="*"/>
+                <DataGridTextColumn Header="Викладач" Binding="{Binding TeacherFullName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,10,0,0">
+            <TextBlock Text="Додати призначення предмету" FontWeight="Medium" FontSize="14" />
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,5,0,10">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="Семестр:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="120"/>
+                    <ComboBox x:Name="SemesterComboBox" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="Предмет:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="120"/>
+                    <ComboBox x:Name="SubjectComboBox" Width="200" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="Викладач:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="120"/>
+                    <ComboBox x:Name="TeacherComboBox" Width="200" DisplayMemberPath="FullName" SelectedValuePath="Id"/>
+                </StackPanel>
+                <Button x:Name="AddAssignmentButton" Content="Додати" Click="AddAssignmentButton_Click" Margin="125,5,0,0" Padding="10,2" HorizontalAlignment="Left" Width="200"/>
+            </StackPanel>
+
+            <TextBlock Text="Редагувати запис" FontWeight="Medium" FontSize="14" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0" x:Name="EditDeletePanel" IsEnabled="False">
+                <TextBlock Text="Новий викладач:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="120"/>
+                <ComboBox x:Name="EditTeacherComboBox" Width="200" DisplayMemberPath="FullName" SelectedValuePath="Id"/>
+                <Button x:Name="UpdateAssignmentButton" Content="Оновити" Click="UpdateAssignmentButton_Click" Padding="10,2" Margin="20,0,0,0"/>
+                <Button x:Name="DeleteAssignmentButton" Content="Видалити" Click="DeleteAssignmentButton_Click" Padding="10,2" Background="LightCoral" Margin="5,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

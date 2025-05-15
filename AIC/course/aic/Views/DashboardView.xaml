@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="aic.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aic.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="660">
+    <Grid Background="White" Margin="10,0,10,20">
+        <StackPanel>
+            <TextBlock Text="Головна" Grid.Row="0" Margin="0,0,0,10" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" />
+
+            <TextBlock Text="Налаштування" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Рік: " VerticalAlignment="Center"/>
+                <TextBox x:Name="YearField" Width="100" Margin="5,0" />
+
+                <TextBlock Text="Семестр: " VerticalAlignment="Center"/>
+                <ComboBox x:Name="SemesterComboBox" Width="100" Margin="5,0">
+                    <ComboBoxItem Content="1" IsEnabled="True"/>
+                    <ComboBoxItem Content="2"/>
+                </ComboBox>
+                <Button Content="Застосувати" Grid.Row="8" Margin="5,0,0,0" Click="Apply_Click"/>
+            </StackPanel>
+
+            <TextBlock Text="Статистика" FontSize="16" FontWeight="Medium" Margin="0,0,0,10"/>
+            <StackPanel>
+                <TextBlock x:Name="FacultiesCountText" FontSize="14" Text="Факультетів:"/>
+                <TextBlock x:Name="DepartmentsCountText" FontSize="14" Text="Кафедр:"/>
+                <TextBlock x:Name="SpecialtiesCountText" FontSize="14" Text="Спеціальностей:"/>
+                <TextBlock x:Name="SubjectsCountText" FontSize="14" Text="Предметів:"/>
+                <TextBlock x:Name="TeachersCountText" FontSize="14" Text="Викладачів:"/>
+                <TextBlock x:Name="GroupsCountText" FontSize="14" Text="Активних груп:"/>
+                <TextBlock x:Name="StudentsCountText" FontSize="14" Text="Активних студентів:"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

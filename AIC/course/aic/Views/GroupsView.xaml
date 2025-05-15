@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="aic.Views.GroupsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aic.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="660">
+    <Grid Background="White" Margin="10,0,10,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Групи закладу" Grid.Row="0" Margin="0,0,0,10" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" />
+
+        <DataGrid Grid.Row="1" x:Name="GroupsGrid" AutoGenerateColumns="False"
+              SelectionMode="Single" IsReadOnly="True"
+              SelectionChanged="GroupsGrid_SelectionChanged"
+              CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Група" Binding="{Binding Name}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Рік" Binding="{Binding CreatedYear}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Спеціальність" Binding="{Binding SpecialtyName}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="0,10,0,0">
+            <TextBlock Text="Створити групу" FontWeight="Medium" FontSize="14" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBlock Text="Назва:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="NewGroupNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Рік створення:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="NewGroupCreatedYearTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Спеціальність:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <ComboBox x:Name="NewGroupSpecialtyComboBox" Width="250" Margin="0,0,10,0"
+              DisplayMemberPath="Name" SelectedValuePath="Id" VerticalContentAlignment="Center"/>
+                <Button x:Name="AddGroupButton" Content="Додати" Click="AddGroupButton_Click" Padding="10,2"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,10,0,0" x:Name="EditDeleteSection" IsEnabled="False">
+            <TextBlock Text="Обрана група" FontWeight="Medium" FontSize="14" />
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBlock Text="Назва:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="SelectedGroupNameTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Рік створення:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <TextBox x:Name="SelectedGroupCreatedYearTextBox" Width="250" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="0,2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <TextBlock Text="Спеціальність:" VerticalAlignment="Center" Margin="0,0,5,0" MinWidth="140"/>
+                <ComboBox x:Name="SelectedGroupSpecialtyComboBox" Width="250" Margin="0,0,10,0"
+                      DisplayMemberPath="Name" SelectedValuePath="Id" VerticalContentAlignment="Center"/>
+                <Button x:Name="UpdateGroupButton" Content="Оновити" Click="UpdateGroupButton_Click" Padding="10,2" Margin="0,0,5,0"/>
+                <Button x:Name="DeleteGroupButton" Content="Видалити" Click="DeleteGroupButton_Click" Padding="10,2" Background="LightCoral"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

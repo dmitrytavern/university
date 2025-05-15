@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="aic.Views.WelcomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aic.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="660">
+    <Grid Background="White">
+        <Grid HorizontalAlignment="Center" Width="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Welcome" Grid.Row="0" Margin="0,60,0,10" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" />
+
+            <TextBlock Text="Ім’я сервера" Grid.Row="1" Margin="0,0,0,0"/>
+            <TextBox x:Name="ServerField" Grid.Row="2" Margin="0,2" Height="20"/>
+
+            <TextBlock Text="Назва бази даних" Grid.Row="3" Margin="0,6,0,0"/>
+            <TextBox x:Name="DatabaseField" Grid.Row="4" Margin="0,2" Height="20"/>
+
+            <TextBlock Text="Ім’я користувача" Grid.Row="5" Margin="0,6,0,0"/>
+            <TextBox x:Name="UsernameField" Grid.Row="6" Margin="0,2" Height="20"/>
+
+            <TextBlock Text="Пароль" Grid.Row="7" Margin="0,6,0,0"/>
+            <PasswordBox x:Name="PasswordField" Grid.Row="8" Margin="0,2" Height="20"/>
+
+            <Button Content="Підключитись"
+                    Grid.Row="9"
+                    Margin="0,10,0,0"
+                    Height="24"
+                    Click="ConnectButton_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>

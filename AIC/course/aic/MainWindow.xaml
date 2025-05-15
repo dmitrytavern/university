@@ -1,0 +1,31 @@
+﻿<Window x:Class="aic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aic"
+        mc:Ignorable="d"
+        Title="AIC" Height="480" Width="860">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="Sidebar" IsEnabled="False" SelectionChanged="Sidebar_SelectionChanged" BorderThickness="1" Grid.Column="0">
+            <ListBoxItem Content="🏠 Головна" Tag="dashboard" FontSize="14" />
+            <ListBoxItem Content="🏫 Факультети" Tag="faculties" FontSize="14" />
+            <ListBoxItem Content="🏢 Кафедри" Tag="departments" FontSize="14" />
+            <ListBoxItem Content="📘 Спеціальності" Tag="specialties" FontSize="14" />
+            <ListBoxItem Content="📚 Предмети" Tag="subjects" FontSize="14" />
+            <ListBoxItem Content="👨‍🏫 Викладачі" Tag="teachers" FontSize="14" />
+            <ListBoxItem Content="👥 Групи" Tag="groups" FontSize="14" />
+            <ListBoxItem Content="🎓 Студенти" Tag="students" FontSize="14" />
+            <ListBoxItem Content="🧾 Призначення предметів" Tag="assignment" FontSize="14" />
+            <ListBoxItem Content="🕒 Розклад" Tag="schedule" FontSize="14" />
+            <ListBoxItem Content="🚪 Вийти" Tag="exit" FontSize="14" />
+        </ListBox>
+
+        <Frame x:Name="navframe" Grid.Column="1" NavigationUIVisibility="Hidden" Background="#fff" Source="/Views/WelcomeView.xaml" />
+    </Grid>
+</Window>

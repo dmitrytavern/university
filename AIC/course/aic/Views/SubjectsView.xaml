@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="aic.Views.SubjectsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aic.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="660">
+    <Grid Background="White" Margin="10,0,10,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Предмети закладу" Grid.Row="0" Margin="0,0,0,10" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" />
+
+        <DataGrid Grid.Row="1" x:Name="SubjectsGrid" AutoGenerateColumns="False"
+                      SelectionMode="Single" IsReadOnly="True"
+                      SelectionChanged="SubjectsGrid_SelectionChanged"
+                      CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Назва Предмету" Binding="{Binding Name}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Margin="0,10,0,0">
+            <TextBlock Text="Створити предмет" FontWeight="Medium" FontSize="14" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Text="Назва:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="NewSubjectNameTextBox" Width="200" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+                <Button x:Name="AddSubjectButton" Content="Додати новий предмет" Click="AddSubjectButton_Click" Padding="10,2"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,10,0,0" x:Name="EditDeleteSection" IsEnabled="False">
+            <TextBlock Text="Обраний предмет" FontWeight="Medium" FontSize="14" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                <TextBlock Text="Назва:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="SelectedSubjectNameTextBox" Width="200" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+                <Button x:Name="UpdateSubjectButton" Content="Оновити" Click="UpdateSubjectButton_Click" Padding="10,2" Margin="0,0,5,0"/>
+                <Button x:Name="DeleteSubjectButton" Content="Видалити" Click="DeleteSubjectButton_Click" Padding="10,2" Background="LightCoral"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
