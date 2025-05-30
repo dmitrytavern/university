@@ -1,0 +1,52 @@
+﻿@model IEnumerable<server_web_lab4.Models.DepartmentProduct>
+
+@{
+    ViewBag.Title = "Товари відділу";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Товари</h2>
+
+    <div class="mb-3">
+        @Html.ActionLink("Додати новий товар", "Create", null, new { @class = "btn btn-success" })
+    </div>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().NAME_RES)</th>
+                <th>@Html.DisplayNameFor(model => model.First().PRICE_RES)</th>
+                <th>@Html.DisplayNameFor(model => model.First().TERM_RES)</th>
+                <th>@Html.DisplayNameFor(model => model.First().StoreDepartment.NAME)</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NAME_RES)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PRICE_RES)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TERM_RES)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StoreDepartment.NAME)</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                @Html.ActionLink("Редагувати", "Edit", new { id = item.ID_RES }, new { @class = "btn btn-primary btn-sm" })
+                                @Html.ActionLink("Деталі", "Details", new { id = item.ID_RES }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Видалити", "Delete", new { id = item.ID_RES }, new { @class = "btn btn-danger btn-sm" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Товарів не знайдено.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,48 @@
+﻿@model server_web_lab3.Models.Property
+@{
+    ViewBag.Title = "Додати нерухомість";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-4">
+    <h2 class="mb-3">Додати нову нерухомість</h2>
+
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Type, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Type, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Type, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Rooms, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Rooms, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.Rooms, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Floors, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Floors, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.Floors, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Condition, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Condition, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Condition, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.EstimatedValue, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.EstimatedValue, new { @class = "form-control", type = "number", step = "1000" })
+            @Html.ValidationMessageFor(m => m.EstimatedValue, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Зберегти</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">Назад</a>
+    }
+</div>

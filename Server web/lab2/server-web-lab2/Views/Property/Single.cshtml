@@ -1,0 +1,12 @@
+﻿@model server_web_lab2.Models.Property
+
+<h2>Найдешевша нерухомість у районі</h2>
+
+<table class="table table-bordered">
+    <tr><th>Тип</th><td>@Model.Type</td></tr>
+    <tr><th>Район</th><td>@Model.District</td></tr>
+    <tr><th>Площа</th><td>@Model.Area м²</td></tr>
+    <tr><th>Кімнати</th><td>@Model.Rooms</td></tr>
+    <tr><th>Ціна</th><td>@Model.Price грн</td></tr>
+    <tr><th>Операція</th><td>@Model.OperationType</td></tr>
+</table>

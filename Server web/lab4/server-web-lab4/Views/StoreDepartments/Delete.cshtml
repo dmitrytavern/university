@@ -1,0 +1,26 @@
+﻿@model server_web_lab4.Models.StoreDepartment
+
+@{
+    ViewBag.Title = "Видалити відділ";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-danger">Видалити відділ</h2>
+
+    <h5 class="mb-3">Ви впевнені, що хочете видалити цей відділ?</h5>
+
+    <dl class="row">
+        <dt class="col-sm-3">Назва відділу</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.NAME)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mt-4">
+            <input type="submit" value="Видалити" class="btn btn-danger me-2" />
+            @Html.ActionLink("Повернутись до списку", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

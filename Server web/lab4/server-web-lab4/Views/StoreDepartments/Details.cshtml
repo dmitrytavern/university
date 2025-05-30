@@ -1,0 +1,23 @@
+﻿@model server_web_lab4.Models.StoreDepartment
+
+@{
+    ViewBag.Title = "Деталі відділу";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Деталі відділу</h2>
+
+    <div>
+        <h4>Відділ магазину</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">Назва відділу</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.NAME)</dd>
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Редагувати", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary me-2" }) |
+        @Html.ActionLink("Повернутись до списку", "Index", null, new { @class = "btn btn-secondary" })
+    </p>
+</div>

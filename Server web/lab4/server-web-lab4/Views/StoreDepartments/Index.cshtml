@@ -1,0 +1,35 @@
+﻿@model IEnumerable<server_web_lab4.Models.StoreDepartment>
+
+@{
+    ViewBag.Title = "Відділи магазину";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Відділи магазину</h2>
+
+    <p>
+        @Html.ActionLink("Створити новий відділ", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Назва відділу</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NAME)</td>
+                    <td>
+                        @Html.ActionLink("Редагувати", "Edit", new { id = item.ID }, new { @class = "btn btn-warning btn-sm me-2" }) |
+                        @Html.ActionLink("Деталі", "Details", new { id = item.ID }, new { @class = "btn btn-info btn-sm me-2" }) |
+                        @Html.ActionLink("Видалити", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

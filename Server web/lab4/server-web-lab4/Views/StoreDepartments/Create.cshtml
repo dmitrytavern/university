@@ -1,0 +1,24 @@
+﻿@model server_web_lab4.Models.StoreDepartment
+
+@{
+    ViewBag.Title = "Додати відділ";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Додати відділ</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.NAME, "Назва відділу", htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-success me-2">Додати</button>
+        @Html.ActionLink("Повернутись до списку", "Index", null, new { @class = "btn btn-secondary" })
+    }
+</div>
